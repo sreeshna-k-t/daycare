@@ -21,13 +21,13 @@
 
 <body>
     <div class="content-wrapper">
-        <header class="wrapper fixed top-0 border-bottom bg-light">
+        <header class="wrapper sticky-top border-bottom bg-light">
             <nav class="navbar navbar-expand-lg pt-0 center-nav transparent navbar-light">
                 <div class="container flex-lg-row flex-nowrap align-items-center">
                     <div class="navbar-brand w-100">
-                        <a href="./index.html" class="d-flex align-items-center">
-                            <img src="{% static 'assets/img/university_logo.png' %}" width="60" height="60" alt="" />
-                            <h3 class="ms-2 mb-0" style="color: #123758;">CALICUT UNIVERSITY</h3>
+                        <a href="{% url 'home' %}" class="d-flex align-items-center">
+                            <img src="{% static 'assets/img/university_logo.png' %}" width="50" height="50" alt="" />
+                            <h5 class="ms-2 mb-0" style="color: #123758;">CALICUT UNIVERSITY</h5>
                         </a>
                     </div>
                     <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
@@ -40,13 +40,13 @@
                             <div class="offcanvas-body ms-lg-auto d-flex flex-column h-100">
                                 <ul class="navbar-nav">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="">Home</a>
+                                        <a class="nav-link" href="#home">Home</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="about">About Us</a>
+                                        <a class="nav-link" href="#about">About Us</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="services">Servives</a>
+                                        <a class="nav-link" href="#services">Servives</a>
                                     </li>
                                 </ul>
                             </div>
@@ -57,7 +57,7 @@
                     <div class="navbar-other ">
                         <ul class="navbar-nav flex-row align-items-center ms-auto">
                             <li class="nav-item d-none d-md-block">
-                                <button class="btn btn-sm btn-primary rounded-pill"><a class="nav-link" href="login">Login</a></button>
+                                <button class="btn btn-sm btn-primary rounded-pill login_btn" ><a class="nav-link" href="login">Login</a></button>
                                
                                 </li>
                             </li>

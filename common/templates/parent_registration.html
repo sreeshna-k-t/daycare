@@ -140,13 +140,19 @@
 
             function validateEmail() {
                 let emailValue = $("#email").val();
+                let regex =/^([_\-\.0-9a-zA-Z]+)@([_\-\.0-9a-zA-Z]+)\.([a-zA-Z]){2,7}$/;
                 if (emailValue.length == "") {
                     $("#email_error").show();
                     $("#email_error").html("*please fill this field");
                     $("#email").css("border-color","red");
                     emailError = false;
                     return false;
-                } else {
+                }else if(!regex.test(emailValue)){
+                    $("#email_error").show();
+                    $("#email_error").html("*please enter a valid mail");
+                    $("#email").css("border-color","red");
+                }
+                 else {
                     $("#email_error").html("");
                     $("#email").css("border-color","");
                     $("#email_error").hide();

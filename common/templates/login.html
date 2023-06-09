@@ -2,14 +2,23 @@
 {% block content %}
 <div class=" vh-100 login_image">
   <div class="container pt-4">
-    <div class="row w-25  p-4 login_box">
-
+    <div class="row p-1  ">
+      <div class="col-sm-12 col-md-6 col-lg-6 login_box">
       <div>
         <h1 class=" fw-bold text-white text-center login_head">LOGIN</h1>
       </div>
 
       <form class="needs-validation ">
-
+        <div class="form-outline mb-1">
+          <label class="form-label text-dark" for="user_type">User Type</label>
+          <select class="form-select" id="user_type" aria-label="Default select example">
+            <option selected>Select user type</option>
+            <option value="staff">Staff</option>
+            <option value="parent">Parent</option>
+          </select>
+          <div class="invalid-feedback" id="user_type_error">
+        </div>
+       
         <div class="form-outline mb-1">
           <label class="form-label text-dark" for="username">Username</label>
           <input class="form-control" type="text" id="username">
@@ -26,7 +35,7 @@
         <div>
           <p class="text-dark"> Don't have an account?
 
-            <a href="parent_registration" class="text-primary text-decoration-underline">Register</a>
+            <a href="{% url 'parentreg' %}" class="text-primary text-decoration-underline">Parent Register</a>
           </p>
         </div>
         <div class="form-outline text-center login_head">
@@ -38,9 +47,39 @@
       </form>
     </div>
   </div>
+  </div>
 </div>
 <script>
   $(document).ready(function () {
+
+    $("#user_type_error").hide();
+    let userTypeError = true;
+    $("#user_type").change(function () {
+      validateUserType();
+    });
+    
+    function validateUserType() {
+      let userTypeValue = $("#user_type").val();
+      if(userTypeValue == "staff"){
+        $("#user_type_error").hide();
+        $("#user_type_error").html("");
+        $("#user_type").css("border-color", "");
+        userTypeError = true
+      }else if (userTypeValue == "parent"){
+        $("#user_type_error").hide();
+        $("#user_type_error").html("");
+        $("#user_type").css("border-color", "");
+        userTypeError = true
+      }else{
+        $("#user_type_error").show();
+        $("#user_type_error").html("*Please select user type");
+        $("#user_type").css("border-color", "red");
+        userTypeError = false
+        return false
+      }
+    }
+
+
     $("#username_error").hide();
     let usernameError = true;
     $("#username").keyup(function () {
@@ -61,6 +100,8 @@
         $("#username_error").hide();
       }
     }
+
+
     $("#password_error").hide();
     let passwordError = true;
     $("#password").keyup(function () {
@@ -82,10 +123,11 @@
       }
     }
     $("#submit").click(function () {
+      validateUserType();
       validateUsername();
       validatePassword();
       
-      if (usernameError == true && passwordError == true) {
+      if (usernameError == true && passwordError == true && userTypeError) {
           return true;
       } else {
           return false;
