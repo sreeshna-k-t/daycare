@@ -1,0 +1,99 @@
+{% extends 'master.html' %}
+{% block content %}
+<div class=" vh-100 login_image">
+  <div class="container pt-4">
+    <div class="row w-25  p-4 login_box">
+
+      <div>
+        <h1 class=" fw-bold text-white text-center login_head">LOGIN</h1>
+      </div>
+
+      <form class="needs-validation ">
+
+        <div class="form-outline mb-1">
+          <label class="form-label text-dark" for="username">Username</label>
+          <input class="form-control" type="text" id="username">
+          <div class="invalid-feedback" id="username_error">
+          </div>
+        </div>
+        <div class="form-outline mb-1">
+          <label class="form-label text-dark" for="password">Password</label>
+          <input class="form-control" type="password" id="password">
+          <div class="invalid-feedback" id="password_error">
+
+          </div>
+        </div>
+        <div>
+          <p class="text-dark"> Don't have an account?
+
+            <a href="parent_registration" class="text-primary text-decoration-underline">Register</a>
+          </p>
+        </div>
+        <div class="form-outline text-center login_head">
+          <input class="btn btn-primary btn-md w-75" id="submit" type="submit" value="LOGIN">
+
+        </div>
+
+
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+  $(document).ready(function () {
+    $("#username_error").hide();
+    let usernameError = true;
+    $("#username").keyup(function () {
+      validateUsername();
+    });
+    
+    function validateUsername() {
+      let usernameValue = $("#username").val();
+      if (usernameValue.length == "") {
+        $("#username_error").show();
+        document.getElementById("username").style.borderColor = 'red'
+        document.getElementById("username_error").innerHTML = "*Please fill this field"
+        usernameError = false;
+        return false;
+      } else {
+        document.getElementById("username").style.borderColor = ''
+        document.getElementById("username_error").innerHTML = ""
+        $("#username_error").hide();
+      }
+    }
+    $("#password_error").hide();
+    let passwordError = true;
+    $("#password").keyup(function () {
+      validatePassword();
+    });
+    
+    function validatePassword() {
+      let passwordValue = $("#password").val();
+      if (passwordValue.length == "") {
+        $("#password_error").show();
+        document.getElementById("password").style.borderColor = 'red'
+        document.getElementById("password_error").innerHTML = "*Please fill this field"
+        passwordError = false;
+        return false;
+      } else {
+        document.getElementById("password").style.borderColor = ''
+        document.getElementById("password_error").innerHTML = ""
+        $("#password_error").hide();
+      }
+    }
+    $("#submit").click(function () {
+      validateUsername();
+      validatePassword();
+      
+      if (usernameError == true && passwordError == true) {
+          return true;
+      } else {
+          return false;
+      }
+
+  });
+
+
+  })
+</script>
+{% endblock %}

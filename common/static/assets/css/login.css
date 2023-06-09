@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   
+}
+
+body {
+    height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: blueviolet;
+
+}
+
+
+
+.Login h1 {
+    align-items: start;
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.Login form {
+    font-size: 15px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+    
+}
+
+.Login form .form-group {
+    margin-bottom: 10px;
+}
+
+.Login form input[type="submit"] {
+    font-size: 20px;
+    margin-top: 15px;
+    margin-left: 60px;
+    align-items: center;
+}
+
+header {  
+    background-color: rgb(217, 205, 205);  
+    position: fixed;  
+    left: 0;  
+    right: 0;  
+    top: 0px;  
+    height: 40px;  
+    display: flex;  
+    align-items: center;    
+    }  
+
+    header * {  
+        display: inline;  
+        }  
+        header li {  
+        margin: 100px;  
+        }  
+        

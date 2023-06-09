@@ -1,0 +1,329 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="An impressive and flawless site template that includes various UI elements and countless features, attractive ready-made blocks and rich pages, basically everything you need to create a unique and professional website.">
+    <meta name="keywords"
+        content="bootstrap 5, business, corporate, creative, gulp, marketing, minimal, modern, multipurpose, one page, responsive, saas, sass, seo, startup, html5 template, site template">
+    <meta name="author" content="elemis">
+    <title>Day Care</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="{% static 'assets/img/favicon.png' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugins.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/custom.css' %}">
+    <link rel="preload" href="{% static 'assets/css/fonts/dm.css' %}" as="style" onload="this.rel='stylesheet'">
+</head>
+
+<body>
+    <div class=" vh-100 stafreg_back">
+        <div class="container pt-5 w-75">
+
+
+            <div>
+                <h1 class=" fw-bold text-dark text-center text-uppercase login_head">staff registration</h1>
+            </div>
+
+            <form class="needs-validation">
+
+                <div class="row pt-3">
+                    <div class="col d-flex form-outline">
+                        <label class="form-label pt-2 pe-5  text-dark label_style" for="name">Name:</label>
+                        <input class="form-control styles ms-5" type="text" id="name">
+                        <div class="invalid-feedback" id="name_error">
+                        </div>
+                    </div>
+                    <div class="col d-flex form-outline">
+                        <label class="form-label pt-2 pe-5 me-4 text-dark label_style" for="address">Address:</label>
+                        <textarea class="form-control styles ms-5" type="address" id="address" row="3"></textarea>
+                        <div class="invalid-feedback" id="address_error">
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="row pt-3">
+                    <div class="col d-flex form-outline">
+                        <label class="form-label pt-2 pe-5 text-dark label_style" for="email">Email_Id:</label>
+                        <input class="form-control ms-2 styles " type="email" id="email">
+                        <div class="invalid-feedback dis_play" id="email_error">
+                        </div>
+                    </div>
+                    <div class="col d-flex form-outline">
+                        <label class="form-label pt-2 pe-9 me-5 text-dark label_style" for="age">Age:</label>
+                        <input class="form-control styles ms-5  " type="text" id="age">
+                        <div class="invalid-feedback" id="age_error">
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="row pt-3">
+                    <div class="col d-flex form-outline">
+                        <label class="form-label pt-2 pe-4  text-dark label_style" for="phone_no">Mobile_No:</label>
+                        <input class="form-control  styles " type="text" id="number">
+                        <div class="invalid-feedback" id="number_error">
+                        </div>
+                    </div>
+                    <div class="col d-flex form-outline">
+                        <label class="form-label pt-2 pe-1 me-5 text-dark label_style" for="name">User_name:</label>
+                        <input class="form-control styles ms-5 " type="text" id="username">
+                        <div class="invalid-feedback " id="username_error">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row pt-3">
+
+                    <div class="col d-flex form-outline">
+                        <label class="form-label  pt-2 pe-5 text-dark label_style" for="address">Password:</label>
+                        <input class="form-control styles ms-1" type="password" id="password">
+                        <div class="invalid-feedback" id="password_error">
+                        </div>
+                    </div>
+                    <div class="col d-flex form-outline">
+                        <label class="form-label pt-2 pe-2 text-dark label_style"
+                            for="address">Confirm_password:</label>
+                        <input class="form-control styles" type="password" id="confirm">
+                        <div class="invalid-feedback" id="confirm_error">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="text-center pt-4">
+                    <input class="btn btn-success btn-sm w-25" id="submit" type="submit" value="REGISTER">
+
+                </div>
+
+
+
+
+
+
+            </form>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $("#name_error").hide();
+            let nameError = true;
+            $("#name").keyup(function () {
+                validateName();
+            });
+
+            function validateName() {
+                let nameValue = $("#name").val();
+                if (nameValue.length == "") {
+                    $("#name_error").show();
+                    $("#name_error").html("*please fill this field");
+                    $("#name").css("border-color","red");
+                    nameError = false;
+                    return false;
+                } else {
+                    $("#name_error").html("");
+                    $("#name").css("border-color","");
+                    $("#name_error").hide();
+                }
+            }
+            $("#address_error").hide();
+            let addressError = true;
+            $("#address").keyup(function () {
+                validateAddress();
+            });
+
+            function validateAddress() {
+                let addressValue = $("#address").val();
+                if (addressValue.length == "") {
+                    $("#address_error").show();
+                    $("#address_error").html("*please fill this field");
+                    $("#address").css("border-color","red");
+                    addressError = false;
+                    return false;
+                } else {
+                    $("#address_error").html("");
+                    $("#address").css("border-color","");
+                    $("#address_error").hide();
+                }
+            }
+            $("#email_error").hide();
+            let emailError = true;
+            $("#email").keyup(function () {
+                validateEmail();
+            });
+
+            function validateEmail() {
+                let emailValue = $("#email").val();
+                if (emailValue.length == "") {
+                    $("#email_error").show();
+                    $("#email_error").html("*please fill this field");
+                    $("#email").css("border-color","red");
+                    emailError = false;
+                    return false;
+                } else {
+                    $("#email_error").html("");
+                    $("#email").css("border-color","");
+                    $("#email_error").hide();
+                }
+            }
+            $("#age_error").hide();
+            let ageError = true;
+            $("#age").keyup(function () {
+                validateAge();
+            });
+
+            function validateAge() {
+                let ageValue = $("#age").val();
+                if (ageValue.length == "") {
+                    $("#age_error").show();
+                    $("#age_error").html("*please fill this field");
+                    $("#age").css("border-color","red");
+                    ageError = false;
+                    return false;
+                } else {
+                    $("#age_error").html("");
+                    $("#age").css("border-color","");
+                    $("#age_error").hide();
+                }
+            }
+
+
+            $("#number_error").hide();
+            let numberError = true;
+            $("#number").keyup(function () {
+                validateNumber();
+            });
+
+            function validateNumber() {
+                let numberValue = $("#number").val();
+                if (numberValue.length == "") {
+                    $("#number_error").show();
+                    $("#number_error").html("*please fill this field");
+                    $("#number").css("border-color","red");
+                    numberError = false;
+                    return false;
+                } else {
+                    $("#number_error").html("");
+                    $("#number").css("border-color","");
+                    $("#number_error").hide();
+                }
+            }
+            $("#username_error").hide();
+            let usernameError = true;
+            $("#username").keyup(function () {
+                validateUsername();
+            });
+
+            function validateUsername() {
+                let usernameValue = $("#username").val();
+                if (usernameValue.length == "") {
+                    $("#username_error").show();
+                    $("#username_error").html("*please fill this field");
+                    $("#username").css("border-color","red");
+                    usernameError = false;
+                    return false;
+                } else {
+                    $("#username_error").html("");
+                    $("#username").css("border-color","");
+                    $("#username_error").hide();
+                }
+            }
+            $("#password_error").hide();
+            let passwordError = true;
+            $("#password").keyup(function () {
+                validatePassword();
+            });
+            
+
+            function validatePassword() {
+                let passwordValue = $("#password").val();
+                if (passwordValue.length == "") {
+                    $("#password_error").show();
+                    $("#password_error").html("*please fill this field");
+                    $("#password").css("border-color","red");
+                    passwordError = false;
+                    return false;
+                } else if(passwordValue.length<8){
+                    $("#password").show();
+                    $("#password_error").html("*length of your password must be 8 characteres");
+                    $("#password").css("border-color","red");
+
+                    
+                }
+                
+                
+                else {
+                    $("#password_error").html("");
+                    $("#password").css("border-color","");
+                    $("#password_error").hide();
+                    $("#confirm_error").hide();
+                }
+
+            }
+            $("#confirm_error").hide();
+            let confirmError = true;
+            $("#confirm").keyup(function () {
+                validateConfirm();
+            });
+
+            function validateConfirm() {
+                let confirmValue = $("#confirm").val();
+                let passwordValue = $("#password").val();
+                if (confirmValue.length == "") {
+                    $("#confirm_error").show();
+                    $("#confirm_error").html("*please fill this field");
+                    $("#confirm").css("border-color","red");
+                    confirmError = false;
+                    return false;
+                }else if(passwordValue != confirmValue){
+                    $("#confirm_error").show();
+                    $("#confirm_error").html("*Password didn't match");
+                    $("#confirm").css("border-color", "red");
+                    return false;
+                }
+                 else {
+                    $("#confirm_error").html("");
+                    $("#confirm").css("border-color","");
+                    $("#confirm_error").hide();
+                }
+            }
+            
+            $("#submit").click(function () {
+
+                validateName();
+                validateAddress();
+                validateEmail();
+                validateAge();
+                validateNumber();                   
+                validateUsername();
+                validatePassword();
+                validateConfirm();
+                
+
+
+                if (nameError == true && addressError == true && emailError == true && ageError == true
+                    && numberError == true && usernameError == true && passwordError == true && confirmError == true) {
+                    return true;
+                } else {
+                    return false;
+                }
+
+            });
+
+
+        })
+    </script>
+    
+
+
+
+
+
+
+</body>
+
+</html>

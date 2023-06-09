@@ -1,0 +1,194 @@
+.divider:after,
+.divider:before {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #eee;
+}
+
+.h-custom {
+    height: calc(100% - 73px);
+}
+
+@media (max-width: 450px) {
+    .h-custom {
+        height: 100%;
+    }
+}
+
+.body_section {
+    background-image: url("/static/assets/img/hero2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: ;
+    
+}
+
+.login_image {
+    background-image: url("/static/assets/img/logback1.jpg");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.login_box {
+    background-color: rgba(255,255,255,0.06);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    border-radius: 8px;
+    -webkit-box-shadow: 20px 20px 22px rgba(0,0,0,0.2);;
+    box-shadow: 20px 20px 22px rgba(0,0,0,0.2);
+}
+
+.login_head {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+.about_img {
+    background-image: url("/static/assets/img/hero1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 550px;
+    
+}
+
+.about_para {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: justify;
+}
+.serv_1 {
+    background-image: url("/static/assets/img/serv1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 40px;
+}
+.serv_2 {
+    background-image: url("/static/assets/img/serv6.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 40px;
+}
+.serv_3 {
+    background-image: url("/static/assets/img/serv2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100px;
+}
+.serv_4 {
+    background-image: url("/static/assets/img/serv3.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 60px;
+}
+.serv_5 {
+    background-image: url("/static/assets/img/serv4.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 40px;
+}
+.serv_6 {
+    background-image: url("/static/assets/img/serv5.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 40px;
+}
+.head_1 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.head_0 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.reg_back {
+    background-image: url("/static/assets/img/regback1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+
+}
+.styles {
+     height: 50px;
+}
+
+.label_style {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: small;
+    
+}
+.stafreg_back {
+    background-image: url("/static/assets/img/staffregback.jpg");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.report_pic {
+    background-image: url("/static/assets/img/report.jpg");
+    background-position: start ;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.report_font {
+    
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.nutritions {
+    background-image: url("/static/assets/img/nutrition.jpg");
+    background-position: center ;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.nutrition_style {
+    font-size: small;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
+
+.attendance {
+    background-image: url("/static/assets/img/attendance.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.feedback_pic {
+    background-image: url("/static/assets/img/feedback.jpg");
+    background-position: center ;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.profile {
+    font-size: x-small;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+}
+
+.profile_pic {
+    background-image: url("/static/assets/img/profile.jpg");
+    background-position: center ;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+}
+
+.report_font1 {
+ font-size: small;   
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+}
+
+.payment_pic {
+    background-image: url("/static/assets/img/payment.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+    

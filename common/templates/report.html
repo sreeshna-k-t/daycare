@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="An impressive and flawless site template that includes various UI elements and countless features, attractive ready-made blocks and rich pages, basically everything you need to create a unique and professional website.">
+    <meta name="keywords"
+        content="bootstrap 5, business, corporate, creative, gulp, marketing, minimal, modern, multipurpose, one page, responsive, saas, sass, seo, startup, html5 template, site template">
+    <meta name="author" content="elemis">
+    <title>Day Care</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="{% static 'assets/img/favicon.png' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugins.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/custom.css' %}">
+    <link rel="preload" href="{% static 'assets/css/fonts/dm.css' %}" as="style" onload="this.rel='stylesheet'">
+</head>
+
+<body>
+    <div class=" vh-100 report_pic">
+        <div class="container pt-2">
+            <h2 class="text-uppercase text-center fw-bold text-danger report_font">medical incident reporting</h2>
+            <form class="no-validation">
+                <div class="form-group me-sm-5 pe-sm-5 d-flex report_font">
+                    <label class="form-label me-sm-5 pe-sm-5 pt-2 text-dark" for="childname" required>Child_Name:</label>
+                    <input class="form-control me-sm-5 ms-sm-3" type="text" id="childname">
+                </div>
+                <div class="form-group pt-2 me-sm-5 pe-sm-5 d-flex report_font">
+                    <label class="form-label me-sm-5 pe-sm-5 pt-2 text-dark" for="incidentdate" required>Incident_Date:</label>
+                    <input class="form-control me-sm-5 " type="text" id="incident">
+                </div>
+                <div class="form-group pt-2  me-sm-5 pe-sm-5 d-flex report_font">
+                    <label class="form-label me-sm-5 pe-sm-5 pt-3 text-dark" for="description">Description:</label>
+                    <textarea class="form-control me-sm-5 ms-sm-3" type="address" id="description" row="4"
+                        placeholder="Type the incident name ,consultant details,docterts name,given first aid and prescription details "
+                        required></textarea>
+                </div>
+                <div class="form-group pt-2 me-sm-5 pe-sm-5 d-flex report_font">
+                    <label class="form-label  me-sm-5 pe-sm-1 pt-2 text-dark" for="current_status" required>Current_Status:</label>
+                    <input class="form-control me-sm-5 ms-sm-3" type="text" id="current_status" placeholder="Type child current status here">
+                </div>
+                <div class="form-group me-sm-5  pt-2 pe-sm-5 d-flex report_font">
+                    <label class="form-label me-sm-5 pe-sm-5 pt-2 text-dark" for="reportedby" required>Reported_By:</label>
+                    <input class="form-control me-sm-5 ms-sm-2" type="text" id="reported_by" placeholder="Type your name here">
+                </div>
+                <div class="form-group me-sm-5 pt-2 pe-sm-5 pe-sm-1 d-flex report_font">
+                    <label class="form-label me-sm-3 pe-sm-5 pt-2 text-dark" for="reportdate"required>Report_Date:</label>
+                    <input class="form-control me-sm-5  ms-sm-5" type="text" id="reportdate">
+                </div>
+                <div class="form-group text-center pt-3 login_head">
+                    <input class="btn btn-danger btn-sm w-20" id="submit" type="submit" value="Generate Report">
+          
+                  </div>
+
+
+
+            </form>
+
+        </div>
+    </div>
+</body>
+
+</html>
