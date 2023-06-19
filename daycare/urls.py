@@ -21,6 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('common.urls')),
     path('daycare_admin/', include('daycare_admin.urls')),
-    path('parent/', include('parent.urls')),
-    path('staff/', include('staff.urls')),
+    path('daycare_parent/', include('daycare_parent.urls')),
+    path('daycare_staff/', include('daycare_staff.urls')),
 ]

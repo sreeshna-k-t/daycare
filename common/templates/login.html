@@ -1,52 +1,52 @@
 {% extends 'master.html' %}
 {% block content %}
 <div class=" vh-100 login_image">
-  <div class="container pt-4">
+  <div class="container pt-2">
     <div class="row p-1  ">
       <div class="col-sm-12 col-md-6 col-lg-6 login_box">
-      <div>
-        <h1 class=" fw-bold text-white text-center login_head">LOGIN</h1>
-      </div>
-
-      <form class="needs-validation ">
-        <div class="form-outline mb-1">
-          <label class="form-label text-dark" for="user_type">User Type</label>
-          <select class="form-select" id="user_type" aria-label="Default select example">
-            <option selected>Select user type</option>
-            <option value="staff">Staff</option>
-            <option value="parent">Parent</option>
-          </select>
-          <div class="invalid-feedback" id="user_type_error">
-        </div>
-       
-        <div class="form-outline mb-1">
-          <label class="form-label text-dark" for="username">Username</label>
-          <input class="form-control" type="text" id="username">
-          <div class="invalid-feedback" id="username_error">
-          </div>
-        </div>
-        <div class="form-outline mb-1">
-          <label class="form-label text-dark" for="password">Password</label>
-          <input class="form-control" type="password" id="password">
-          <div class="invalid-feedback" id="password_error">
-
-          </div>
-        </div>
         <div>
-          <p class="text-dark"> Don't have an account?
-
-            <a href="{% url 'parentreg' %}" class="text-primary text-decoration-underline">Parent Register</a>
-          </p>
-        </div>
-        <div class="form-outline text-center login_head">
-          <input class="btn btn-primary btn-md w-75" id="submit" type="submit" value="LOGIN">
-
+          <h1 class=" fw-bold pt-1 text-white text-center login_head">LOGIN</h1>
         </div>
 
+        <form method="POST" class="">
+          {% csrf_token %}
+          <div class="form-outline mb-1">
+            <label class="form-label text-dark" for="user_type">User Type</label>
+            <select class="form-select" id="user_type" aria-label="Default select example">
+              <option selected>Select user type</option>
+              <option value="staff">Staff</option>
+              <option value="parent">Parent</option>
+            </select>
+            <div class="invalid-feedback" id="user_type_error">
+            </div>
 
-      </form>
+            <div class="form-outline mb-1">
+              <label class="form-label text-dark" for="username">Username</label>
+              <input class="form-control" type="text" id="username" name="log_username">
+              <div class="invalid-feedback" id="username_error">
+              </div>
+            </div>
+            <div class="form-outline mb-1">
+              <label class="form-label text-dark" for="password">Password</label>
+              <input class="form-control" type="password" id="password" name="log_password">
+              <div class="invalid-feedback" id="password_error"></div>
+              <small class="" style="color: red;" id="error_message">{{err_msg}}</small>
+            </div>
+            <div>
+              <p class="text-dark"> Don't have an account?
+
+                <a href="{% url 'parentreg' %}" class="text-primary text-decoration-underline">Parent Register</a>
+              </p>
+            </div>
+            <div class="form-outline text-center login_head">
+              <button class="btn btn-primary btn-md w-75" id="login_submit" type="submit">LOGIN</button>
+
+            </div>
+
+
+        </form>
+      </div>
     </div>
-  </div>
   </div>
 </div>
 <script>
@@ -57,20 +57,22 @@
     $("#user_type").change(function () {
       validateUserType();
     });
-    
+
     function validateUserType() {
       let userTypeValue = $("#user_type").val();
-      if(userTypeValue == "staff"){
+      if (userTypeValue == "staff") {
+        $("#user_type_error").hide();
+        $("#user_type_error").html("");
+        $("#user_type").css("border-color", "");
+        userTypeError = true;
+        return true;
+      } else if (userTypeValue == "parent") {
         $("#user_type_error").hide();
         $("#user_type_error").html("");
         $("#user_type").css("border-color", "");
         userTypeError = true
-      }else if (userTypeValue == "parent"){
-        $("#user_type_error").hide();
-        $("#user_type_error").html("");
-        $("#user_type").css("border-color", "");
-        userTypeError = true
-      }else{
+        return true;
+      } else {
         $("#user_type_error").show();
         $("#user_type_error").html("*Please select user type");
         $("#user_type").css("border-color", "red");
@@ -85,7 +87,7 @@
     $("#username").keyup(function () {
       validateUsername();
     });
-    
+
     function validateUsername() {
       let usernameValue = $("#username").val();
       if (usernameValue.length == "") {
@@ -98,6 +100,8 @@
         document.getElementById("username").style.borderColor = ''
         document.getElementById("username_error").innerHTML = ""
         $("#username_error").hide();
+        usernameError = true;
+        return true;
       }
     }
 
@@ -107,7 +111,7 @@
     $("#password").keyup(function () {
       validatePassword();
     });
-    
+
     function validatePassword() {
       let passwordValue = $("#password").val();
       if (passwordValue.length == "") {
@@ -120,20 +124,24 @@
         document.getElementById("password").style.borderColor = ''
         document.getElementById("password_error").innerHTML = ""
         $("#password_error").hide();
+        passwordError = true;
+        return true;
       }
     }
-    $("#submit").click(function () {
+    $("#login_submit").click(function () {
       validateUserType();
       validateUsername();
       validatePassword();
       
       if (usernameError == true && passwordError == true && userTypeError) {
-          return true;
+        console.log(usernameError, passwordError, userTypeError)
+        return true;
       } else {
-          return false;
+        console.log(usernameError, passwordError, userTypeError)
+        return false;
       }
 
-  });
+    });
 
 
   })

@@ -1,0 +1,33 @@
+{% extends 'daycare_admin/admin.html' %}
+{% load static %}
+{% block content %}
+    <!-- <div class=" vh-100"> -->
+        <div class="container pt-5">
+            <h1 class="text-uppercase text-center fw-bold text-success bg-dark pb-md-2 pt-md-2">parent registrations
+            </h1>
+            <table class="table table-sm border-light text-dark card_style">
+                <thead>
+                    <tr>
+                        <th scope="col">Parent_Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Phone_No</th>
+                        <th scope="col">Occupation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for parent in all_parents %}
+                    <tr>
+                        <th>{{parent.name}}</th>
+                        <td>{{parent.email_id}}</td>
+                        <td>{{parent.address}}</td>
+                        <td>{{parent.phone_no}}</td>
+                        <td>{{parent.occupation}}</td>
+                    </tr>
+                    {% endfor %}
+                   
+                </tbody>
+            </table>
+        </div>
+    <!-- </div> -->
+{% endblock %}
