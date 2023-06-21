@@ -2,11 +2,11 @@
 {% load static %}
 {% block content %}
 
-    <div class=" vh-100">
-        <div class="container pt-7">
+    <div class=" vh-100 admin_image overflow-auto">
+        <div class="container pt-md-5">
             <h1 class="text-uppercase text-center fw-bold text-success bg-dark pb-md-2 pt-md-2">parent feedbacks
             </h1>
-            <table class="table table-sm border-light text-light fw-bold card_style">
+            <table class="bg-light table table-sm fw-bold card_style">
                 <thead>
                     <tr>
                         <th scope="col">Parent_Name</th>
@@ -18,14 +18,17 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for feedback in all_feedback %}
+
                     <tr>
-                        <th>shilpa</th>
-                        <td>9778258161</td>
-                        <td>shilpa@gmail.com</td>
-                        <td>good</td>
-                        <td>3/10/2023</td>
+                        <th>{{feedback.feed_name}}</th>
+                        <td>{{feedback.feed_no}}</td>
+                        <td>{{feedback.feed_email}}</td>
+                        <td>{{feedback.feed_feedback}}</td>
+                        <td>{{feedback.feed_date}}</td>
                         
                     </tr>
+                    {% endfor %}
                     
                 </tbody>
             </table>

@@ -5,9 +5,10 @@ from . import views
 app_name = "daycare_staff"
 urlpatterns = [
     # path('',views.home,name="home")
-    path('staffhome',views.staffhome,name="staffhome"),
-    path('nutritions',views.nutritions,name="nutritions"),
-    path('attendance',views.attendance,name="attendance"),
-    path('viewprofile',views.viewprofile,name="viewprofile"),
+    path('',views.staffhome,name="staffhome"),
+    path('viewprofile',views.viewprofile,name='viewprofile'), 
+    path('attendance',views.attendance,name='attendance'),
+    path('nutritions',views.nutritions,name='nutritions'),
+    
     
 ]

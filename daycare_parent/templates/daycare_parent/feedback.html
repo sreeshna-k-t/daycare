@@ -1,88 +1,86 @@
 {% extends 'daycare_parent/parent.html' %}
 {% load static %}
 {% block content %}
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="An impressive and flawless site template that includes various UI elements and countless features, attractive ready-made blocks and rich pages, basically everything you need to create a unique and professional website.">
-    <meta name="keywords"
-        content="bootstrap 5, business, corporate, creative, gulp, marketing, minimal, modern, multipurpose, one page, responsive, saas, sass, seo, startup, html5 template, site template">
-    <meta name="author" content="elemis">
-    <title>Day Care</title>
-    <script src="https://code.jquery.com/jquery-3.7.0.js"
-        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
-        <link rel="shortcut icon" href="{% static 'assets/img/favicon.png' %}">
-        <link rel="stylesheet" href="{% static 'assets/css/plugins.css' %}">
-        <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/custom.css' %}">
-    <link rel="preload" href="{% static 'assets/css/fonts/dm.css' %}" as="style" onload="this.rel='stylesheet'">
-</head>
-
-<body>
-    <div class=" vh-100 feedback_pic">
-        <div class="container pt-3">
-            <h2 class="text-uppercase text-center fw-bold text-dark report_font">give us your feedback!</h2>
-            <form class="no-validation">
-                <div class="form-group pt-2 d-flex">
-                    <label class="form-label text-dark pt-2 me-sm-5 pe-sm-5 report_font" id="name"
+<div class=" vh-100 feedback_pic d-flex align-items-center">
+    <div class="container p-5">
+        <h2 class="text-uppercase text-center fw-bold text-dark report_font">give us your feedback!</h2>
+        <form class="px-5 pt-2" method="POST">
+            {% csrf_token %}
+            <div class="row mb-3">
+                <div class="col-md-2">
+                    <label class="form-label text-dark  report_font" id="name"
                         for="number">Parent_Name:</label>
-                    <input class="form-control me-sm-15" id="name" type="text" placeholder="Enter your name here">
                 </div>
-                <div class="form-group pt-2 d-flex">
-                    <label class="form-label text-dark pt-2 me-sm-5 pe-sm-5 report_font" id="phone_no"
-                        for="number">Phone_No:</label>
-                    <input class="form-control me-sm-15 ms-sm-5" id="number" type="text"
+                <div class="col-md-10">
+                    <input class="form-control" id="name" name="feed_name" type="text" placeholder="Enter your name here">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-2">
+                    <label class="form-label text-dark report_font" id="phone_no" for="number">Phone_No:</label>
+                </div>
+                <div class="col-md-10">
+                    <input class="form-control" id="number" name="feed_no" type="text"
                         placeholder="Enter your mobile number">
                 </div>
-                <div class="form-group pt-2 d-flex">
-                    <label class="form-label text-dark pt-3  me-sm-5 pe-sm-8 report_font" id="email"
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-2">
+                    <label class="form-label text-dark report_font" id="email"
                         for="email">Email_Id:</label>
-                    <input class="form-control ms-sm-4 me-sm-15 ps-sm-4" id="number" type="email"
+                </div>
+                <div class="col-md-10">
+                    <input class="form-control" id="email" name="feed_email" type="email"
                         placeholder="Enter your email address">
                 </div>
-                <div class="form-group pt-2  d-flex">
-                    <label class="form-label text-dark me-sm-5 pe-sm-6 pt-2 report_font" id="feedback"
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-2">
+                    <label class="form-label text-dark report_font" id="feedback"
                         for="feedback">Feedback:</label>
-                    <textarea class="form-control me-sm-15 ms-sm-5" id="feedback"
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" id="feedback" name="feed_feedback"
                         placeholder="Help us to improve with your feedback"></textarea>
                 </div>
+            </div>
 
-                <div class="form-group pt-2 d-flex">
-                    <label class="form-label text-dark me-sm-5 pe-sm-11 pt-2 me-sm-5 report_font" id="date"
+            <div class="row mb-3">
+                <div class="col-md-2">
+                    <label class="form-label text-dark  report_font" id="date"
                         for="date">Date:</label>
-                    <input class="form-control me-sm-15 ms-sm-5" id="date" placeholder="Enter the date">
                 </div>
-                <div class="form-group text-center pt-2 login_head">
-                    <input class="btn btn-danger w-20 btn-sm" id="submit" type="submit" value="Post Feedback">
+                <div class="col-md-10">
+                    <input class="form-control "  type="date" id="date" name="feed_date" placeholder="Enter the date">
                 </div>
-                <div class="container report_font" id="feedback1"></div>
-                
-
-
+            </div>
+            <div class="row">
+                <div class="col-md-12 d-flex justify-content-center">
+                <input class="btn btn-danger btn-lg" id="submit" type="submit" value="Post Feedback">
+            </div>
         </div>
+            <div class="container report_font text-center" style="color: blue;" id="">{{message}}</div>
+            
+
+        </form>
+
     </div>
-    <script>
-        $(document).ready(function () {
-            // Add a click event listener to the submit button
-            $('#submit').click(function (event) {
-                event.preventDefault(); // Prevent the form from submitting
+</div>
+<!-- <script>
+    $(document).ready(function () {
+        // Add a click event listener to the submit button
+        $('#submit').click(function (event) {
+            event.preventDefault(); // Prevent the form from submitting
 
-                // Display the "Thank you" message
-                $('#feedback1').append('<center>Thank you for submitting feedback!</center>');
-                $("#feedback1").css("color","blue");
+            // Display the "Thank you" message
+            $('#feedback1').append('<center>Thank you for submitting feedback!</center>');
+            $("#feedback1").css("color", "blue");
 
-                // Reset the form (optional)
-                $('#feedback')[0].reset();
-            });
+            // Reset the form (optional)
+            $('#feedback')[0].reset();
         });
-    </script>
-</body>
+    });
+</script> -->
 
-
-
-</html>
 {% endblock %}

@@ -14411,10 +14411,13 @@ footer.footer ul {
     height: 3px;
     transition: background .1s ease-in-out, color .1s ease-in-out;
     width: 24px
+    
 }
 
 .hamburger {
-    position: relative
+    position: relative;
+
+    
 }
 
 .hamburger:before {
@@ -14427,6 +14430,7 @@ footer.footer ul {
     bottom: -7.5px;
     position: absolute;
     width: 16px
+    
 }
 
 .sidebar-toggle:hover .hamburger,
@@ -16096,5 +16100,40 @@ span.flatpickr-weekday {
     top: 0;
     width: 260px
 }
+
+.card_style {
+    background-color: rgba(255,255,255,0.06);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    border-radius: 8px;
+    -webkit-box-shadow: 20px 20px 22px rgba(0,0,0,0.2);;
+    box-shadow: 20px 20px 22px rgba(0,0,0,0.2);
+   
+  }
+  .card_up {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: x-large;
+    
+  }
+
+  .admin_image {
+    background-image: url("/static/admin_img/adminpic.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .fonts {
+    font-family: unset;
+    font-size: small;
+  }
+
+  .card_title {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: xx-large;
+  }
+
+   
+  
+  
 
 /*# sourceMappingURL=app.css.map*/

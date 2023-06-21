@@ -6,81 +6,112 @@
 
 
     <div class=" vh-100 stafreg_back">
-        <div class="container pt-md-5 w-md-75">
+    <div class="container p-4">
 
 
             <div>
-                <h1 class=" fw-bold text-dark text-center text-uppercase login_head">staff registration</h1>
+                <h1 class=" fw-bold text-dark text-center text-uppercase login_head py-2">staff registration</h1>
             </div>
 
-            <form class="needs-validation">
+            <form class="no-validation">
 
-                <div class="row pt-md-3">
-                    <div class="col d-flex form-outline">
-                        <label class="form-label pt-md-2 pe-md-5  text-dark label_style" for="name">Name:</label>
-                        <input class="form-control styles ms-md-5" type="text" id="name">
-                        <div class="invalid-feedback" id="name_error">
+                <div class="row py-2">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-4 py-2">
+                        <label class="form-label text-dark label_style" for="name">Name:</label></div>
+                        <div class="col-md-8">
+                        <input class="form-control styles" type="text" id="name">
+                        <div class="invalid-feedback" id="name_error"></div>
+                        </div></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                        <div class="col-md-4 py-2">
+                        <label class="form-label text-dark label_style" for="address">Address:</label></div>
+                        <div class="col-md-8">
+                        <textarea class="form-control styles" type="address" id="address" row="3"></textarea>
+                        <div class="invalid-feedback" id="address_error"></div>
                         </div>
                     </div>
-                    <div class="col d-flex form-otline">
-                        <label class="form-label pt-md-2 pe-md-5 me-md-4 text-dark label_style" for="address">Address:</label>
-                        <textarea class="form-control styles ms-md-5" type="address" id="address" row="3"></textarea>
-                        <div class="invalid-feedback" id="address_error">
+</div>
+
+                </div>
+                <div class="row py-2">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-4 py-2">
+                        <label class="form-label text-dark label_style" for="email">Email_Id:</label></div>
+                        <div class="col-md-8">
+                        <input class="form-control styles " type="email" id="email">
+                        <div class="invalid-feedback dis_play" id="email_error"></div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col-md-6 ">
+                        <div class="row">
+                            <div class="col-md-4 py-2">
+                        <label class="form-label text-dark label_style" for="age">Age:</label></div>
+                        <div class="col-md-8">
+                        <input class="form-control styles" type="text" id="age">
+                        <div class="invalid-feedback" id="age_error"></div>
+                        </div>
                         </div>
                     </div>
 
 
                 </div>
-                <div class="row pt-md-3">
-                    <div class="col d-flex form-outline">
-                        <label class="form-label pt-md-2 pe-md-5 text-dark label_style" for="email">Email_Id:</label>
-                        <input class="form-control ms-md-2 styles " type="email" id="email">
-                        <div class="invalid-feedback dis_play" id="email_error">
-                        </div>
-                    </div>
-                    <div class="col d-flex form-outline">
-                        <label class="form-label pt-md-2 pe-9 me-md-5 text-dark label_style" for="age">Age:</label>
-                        <input class="form-control styles ms-md-5  " type="text" id="age">
-                        <div class="invalid-feedback" id="age_error">
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="row pt-md-3 ">
-                    <div class="col d-flex form-outline">
-                        <label class="form-label pt-md-2 pe-md-4  text-dark label_style" for="phone_no">Mobile_No:</label>
+                <div class="row py-2">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-4 py-2">
+                        <label class="form-label  text-dark label_style" for="phone_no">Mobile_No:</label></div>
+                        <div class="col-md-8">
                         <input class="form-control  styles " type="text" id="number">
-                        <div class="invalid-feedback" id="number_error">
+                        <div class="invalid-feedback" id="number_error"></div>
                         </div>
                     </div>
-                    <div class="col d-flex form-outline">
-                        <label class="form-label pt-md-2 pe-md-1 me-md-5 text-dark label_style" for="name">User_name:</label>
-                        <input class="form-control styles ms-md-5 " type="text" id="username">
-                        <div class="invalid-feedback " id="username_error">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-4 py-2">
+                        <label class="form-label text-dark label_style" for="name">User_name:</label></div>
+                        <div class="col-md-8">
+                        <input class="form-control styles " type="text" id="username">
+                        <div class="invalid-feedback " id="username_error"></div>
                         </div>
+                    </div>
                     </div>
 
                 </div>
-                <div class="row pt-md-3 ">
+                <div class="row py-2">
 
-                    <div class="col d-flex form-outline">
-                        <label class="form-label  pt-md-2 pe-md-5 text-dark label_style" for="address">Password:</label>
-                        <input class="form-control styles ms-md-1" type="password" id="password">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-4 py-2">
+                        <label class="form-label text-dark label_style" for="address">Password:</label></div>
+                        <div class="col-md-8">
+                        <input class="form-control styles" type="password" id="password">
                         <div class="invalid-feedback" id="password_error">
-                        </div>
+                        </div></div>
                     </div>
-                    <div class="col d-flex form-outline">
-                        <label class="form-label pt-md-2 pe-md-2 text-dark label_style"
-                            for="address">Confirm_password:</label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-4 py-2">
+                        <label class="form-label text-dark label_style"
+                            for="address">Confirm_password:</label></div>
+                            <div class="col-md-8">
                         <input class="form-control styles" type="password" id="confirm">
                         <div class="invalid-feedback" id="confirm_error">
                         </div>
+                        </div>
+                    </div>
                     </div>
 
                 </div>
-                <div class="text-center pt-md-4">
-                    <input class="btn btn-success btn-sm w-25" id="submit" type="submit" value="REGISTER">
+                <div class="py-2 text-center">
+                    <input class="btn btn-success btn-lg w-25" id="submit" type="submit" value="REGISTER">
 
                 </div>
 

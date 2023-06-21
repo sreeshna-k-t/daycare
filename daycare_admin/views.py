@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from common.models import *
+from daycare_parent.models import *
 
 # Create your views here.
 
@@ -27,8 +28,10 @@ def viewpayment(request):
     return render(request,"daycare_admin/viewpayment.html")
 
 def viewfeedback(request):
+    all_feedback = ParentFeedback.objects.all()
 
-    return render(request,"daycare_admin/viewfeedback.html")
+
+    return render(request,"daycare_admin/viewfeedback.html",{"all_feedback":all_feedback})
 
 
 

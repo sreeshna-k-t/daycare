@@ -1,5 +1,34 @@
 {% extends 'daycare_parent/parent.html' %}
 {% load static %}
 {% block content %}
-<h1>hello</h1>
+
+    <div class=" vh-100 report_back">
+        <div class="container pt-md-5 ps-md-3 pe-md-3">
+            <h2 class="text-uppercase text-center fw-bold text-dark card_style report_font  pt-md-2 pb-md-2">child medical status 
+            </h2>
+            <table class="table table-sm border-dark text-dark nutrition_style">
+                <thead>
+                    <tr>
+                        
+                        <th scope="col">Child_Name</th>
+                        <th scope="col">Incident_Date</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">status</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                       
+                        <td>Hellen</td>
+                        <td>2/10/12</td>
+                        <td>Headache,consulted to the dr.swathy,calicut university health centre,prescribed paracetamol 3times/day</td>
+                        <td>ok now</td>
+                        </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 {% endblock %}

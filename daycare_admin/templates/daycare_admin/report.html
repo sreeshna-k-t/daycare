@@ -2,46 +2,81 @@
 {% block content %}
 {% load static %}
 
-    <div class=" vh-100 report_pic">
-        <div class="container pt-2">
-            <h2 class="text-uppercase text-center fw-bold text-danger report_font">medical incident reporting</h2>
-            <form class="no-validation">
-                <div class="form-group me-sm-5 pe-sm-5 d-flex report_font">
-                    <label class="form-label me-sm-4 pe-sm-5 pt-2 text-dark" for="childname" required>Child_Name:</label>
-                    <input class="form-control me-sm-5 ms-sm-3" type="text" id="childname">
-                </div>
-                <div class="form-group pt-1 me-sm-5 pe-sm-5 d-flex report_font">
-                    <label class="form-label me-sm-5 pe-sm-5 pt-2  text-dark" for="incidentdate" required>Incident_Date:</label>
-                    <input class="form-control me-sm-5 " type="text" id="incident">
-                </div>
-                <div class="form-group pt-1  me-sm-5 pe-sm-5 d-flex report_font">
-                    <label class="form-label me-sm-5 ms-1 pe-sm-5 pt-3 text-dark" for="description">Description:</label>
-                    <textarea class="form-control me-sm-5 ms-sm-3" type="address" id="description" row="4"
-                        placeholder="Type the incident name ,consultant details,docterts name,given first aid and prescription details "
-                        required></textarea>
-                </div>
-                <div class="form-group pt-1 me-sm-5 pe-sm-5 d-flex report_font">
-                    <label class="form-label  me-sm-5 pe-sm-1 pt-2 text-dark" for="current_status" required>Current_Status:</label>
-                    <input class="form-control me-sm-5 ms-sm-3" type="text" id="current_status" placeholder="Type child current status here">
-                </div>
-                <div class="form-group me-sm-5  pt-1 pe-sm-5 d-flex report_font">
-                    <label class="form-label me-sm-5 pe-sm-5 pt-2 text-dark" for="reportedby" required>Reported_By:</label>
-                    <input class="form-control me-sm-5 ms-sm-2" type="text" id="reported_by" placeholder="Type your name here">
-                </div>
-                <div class="form-group me-sm-5 pt-1 pe-sm-5 pe-sm-1 d-flex report_font">
-                    <label class="form-label me-sm-3 pe-sm-5 pt-2 text-dark" for="reportdate"required>Report_Date:</label>
-                    <input class="form-control me-sm-5  ms-sm-5" type="text" id="reportdate">
-                </div>
-                <div class="form-group text-center pt-1 login_head">
-                    <input class="btn btn-danger btn-sm w-25" id="submit" type="submit" value="Generate Report">
-          
-                  </div>
+<div class=" vh-100 report_pic align-items-center">
+    <div class="container p-5">
+        <h1 class="text-uppercase text-center fw-bold text-danger py-2 report_font">medical incident reporting</h1>
+        <form class="no-validation">
+            <div class="row py-1">
+                <div class="col-3">
 
+                    <label class="form-label  text-dark report_font" for="childname" required>Child Name:</label>
+                </div>
+                <div class="col-9">
+                    <input class="form-control" type="text" id="childname">
+                </div>
+            </div>
+    
+    <div class="row py-1">
+        <div class="col-3">
 
-
-            </form>
-
+            <label class="form-label text-dark report_font" for="incidentdate" required>Parent Email_Id:</label>
+        </div>
+        <div class="col-9">
+            <input class="form-control" type="text" id="incident">
         </div>
     </div>
+
+<div class="row py-1">
+    <div class="col-3">
+
+        <label class="form-label text-dark report_font" for="description">Description:</label>
+    </div>
+    <div class="col-9">
+        <textarea class="form-control" type="address" id="description" row="4"
+            placeholder="Type the incident name ,consultant details,docterts name,given first aid and prescription details "
+            required></textarea>
+    </div>
+</div>
+
+<div class="row py-1">
+    <div class="col-3">
+
+        <label class="form-label report_font text-dark" for="current_status" required>Current Status:</label>
+    </div>
+    <div class="col-9">
+        <input class="form-control" type="text" id="current_status" placeholder="Type child current status here">
+    </div>
+</div>
+
+<div class="row py-1">
+    <div class="col-3">
+
+        <label class="form-label text-dark report_font" for="reportedby" required>Reported By:</label>
+    </div>
+    <div class="col-9"><input class="form-control" type="text" id="reported_by" placeholder="Type your name here">
+    </div>
+</div>
+
+<div class="row py-1">
+    <div class="col-3">
+
+        <label class="form-label text-dark report_font" for="reportdate" required>Incident Date:</label>
+    </div>
+    <div class="col-9">
+        <input class="form-control" type="date" id="reportdate">
+    </div>
+</div>
+
+<div class="text-center login_head py-1">
+    <input class="btn btn-danger btn-lg " id="submit" type="submit" value="Generate Report">
+
+</div>
+
+
+
+</form>
+
+</div>
+</div>
 
 {% endblock %}

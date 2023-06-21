@@ -173,14 +173,7 @@
     
 }
 
-.profile_pic {
-    background-image: url("/static/assets/img/profile.jpg");
-    background-position: center ;
-    background-repeat: no-repeat;
-    background-size: cover;
 
-
-}
 
 .report_font1 {
  font-size: small;   
