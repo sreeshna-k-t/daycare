@@ -5,14 +5,15 @@
 <div class=" vh-100 report_pic align-items-center">
     <div class="container p-5">
         <h1 class="text-uppercase text-center fw-bold text-danger py-2 report_font">medical incident reporting</h1>
-        <form class="no-validation">
+        <form method="POST" class="no-validation">
+            {% csrf_token %}
             <div class="row py-1">
                 <div class="col-3">
 
                     <label class="form-label  text-dark report_font" for="childname" required>Child Name:</label>
                 </div>
                 <div class="col-9">
-                    <input class="form-control" type="text" id="childname">
+                    <input class="form-control" type="text" id="childname" name="child_name">
                 </div>
             </div>
     
@@ -22,7 +23,7 @@
             <label class="form-label text-dark report_font" for="incidentdate" required>Parent Email_Id:</label>
         </div>
         <div class="col-9">
-            <input class="form-control" type="text" id="incident">
+            <input class="form-control" type="text" id="parentemail" name="parent_email_id">
         </div>
     </div>
 
@@ -32,7 +33,7 @@
         <label class="form-label text-dark report_font" for="description">Description:</label>
     </div>
     <div class="col-9">
-        <textarea class="form-control" type="address" id="description" row="4"
+        <textarea class="form-control" type="address" id="description" name="description" row="4"
             placeholder="Type the incident name ,consultant details,docterts name,given first aid and prescription details "
             required></textarea>
     </div>
@@ -44,7 +45,7 @@
         <label class="form-label report_font text-dark" for="current_status" required>Current Status:</label>
     </div>
     <div class="col-9">
-        <input class="form-control" type="text" id="current_status" placeholder="Type child current status here">
+        <input class="form-control" type="text" id="current_status" name="current_status" placeholder="Type child current status here">
     </div>
 </div>
 
@@ -53,7 +54,7 @@
 
         <label class="form-label text-dark report_font" for="reportedby" required>Reported By:</label>
     </div>
-    <div class="col-9"><input class="form-control" type="text" id="reported_by" placeholder="Type your name here">
+    <div class="col-9"><input class="form-control" type="text" id="reported_by" name="reported_by" placeholder="Type your name here">
     </div>
 </div>
 
@@ -63,7 +64,7 @@
         <label class="form-label text-dark report_font" for="reportdate" required>Incident Date:</label>
     </div>
     <div class="col-9">
-        <input class="form-control" type="date" id="reportdate">
+        <input class="form-control" type="date" id="reportdate" name="report_date">
     </div>
 </div>
 
@@ -71,6 +72,7 @@
     <input class="btn btn-danger btn-lg " id="submit" type="submit" value="Generate Report">
 
 </div>
+<div class="container report_font text-center" style="color: #a3220bcd;" id="">{{message}}</div>
 
 
 

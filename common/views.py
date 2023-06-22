@@ -61,6 +61,7 @@ def parent_registration(request):
         else:
             register = ParentRegister(name=name, address=address, email_id=email,
                                       occupation=occupation, phone_no=mobileno, username=username, password=password)
+
             register.save()
             print("saved")
            

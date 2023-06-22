@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from .models import *
+from daycare_parent .models import *
 
 # Create your views here.
 
@@ -32,8 +33,9 @@ def feedback(request):
     return render(request,"daycare_parent/feedback.html")
 
 def viewreport(request):
+    reports = IncidentReport.objects.all()
 
-    return render(request,"daycare_parent/viewreport.html")
+    return render(request,"daycare_parent/viewreport.html",{"reports":reports})
 
 def viewattendance(request):
 
