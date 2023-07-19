@@ -6,28 +6,38 @@
         <div class="container pt-md-5 ps-md-3 pe-md-3">
             <h2 class="text-uppercase text-center fw-bold text-dark card_style report_font  pt-md-2 pb-md-2">child medical status 
             </h2>
+            {% if reports %}
             <table class="table table-sm border-dark text-dark nutrition_style">
                 <thead>
                     <tr>
                         
                         <th scope="col">Child_Name</th>
-                        <th scope="col">Incident_Date</th>
+                        <th scope="col">parent_email_id</th>
                         <th scope="col">Description</th>
-                        <th scope="col">status</th>
+                        <th scope="col">current_status</th>
+                        <th scope="col">Incident_date</th>
 
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
+                        {% for report in reports %}
                        
-                        <td>Hellen</td>
-                        <td>2/10/12</td>
-                        <td>Headache,consulted to the dr.swathy,calicut university health centre,prescribed paracetamol 3times/day</td>
-                        <td>ok now</td>
+                        <td>{{report.child_name}}</td>
+                        <td>{{report.parent_email_id}}</td>
+                        <td>{{report.description}}</td>
+                        <td>{{report.current_status}}</td>
+                        <td>{{report.incident_date}}</td>
                         </tr>
+                        {% endfor %}
 
                 </tbody>
             </table>
+            {% else %}
+            <div class="d-flex justify-content-center">
+            <h4>Curently you have no child incident reports.</h4>
+        </div>
+            {% endif %}
         </div>
     </div>
 

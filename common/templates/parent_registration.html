@@ -1,27 +1,229 @@
 {% extends 'master.html' %}
 {% block content %}
-<div class=" vh-100 reg_back">
-    <div class="container pt-5 w-75">
+<div class=" vh-100 reg_back overflow-auto">
+    <div class="container pt-2 w-75">
 
 
         <div>
             <h1 class=" fw-bold text-dark text-center text-uppercase login_head">registration form</h1>
-            
-        </div>
 
-        <form method="POST" class="">
+        </div>
+        <form action="" method="POST">
             {% csrf_token %}
-            
+            <div class="accordion " id="accordionExample">
+                <div class="steps mb-1">
+                    <progress id="progress" value=0 max=100></progress>
+                    <div class="step-item">
+                        <button class="step-button text-center" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            1
+                        </button>
+                        <div class="step-title">
+                            Parent Details
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <button class="step-button text-center collapsed parent_btn" id="parent_btn" type="button" >
+                            2
+                        </button>
+                        <div class="step-title">
+                            Child Details
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                    data-bs-parent="#accordionExample">
+                    <div class="">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <input type="text" hidden name="csrfmiddlewaretoken" value="{{csrf_token}}" id="">
+                            <div class="row">
+                                <div class="mb-2 col-md-6">
+                                    <label for="name" class="form-label">First Name</label>
+                                    <input type="text" class="form-control" id="name">
+                                    <small style="color: red;" id="name_error"></small>
+                                </div>
+                                <div class="mb-2 col-md-6">
+                                    <label for="lastname" class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" name="lastname" id="lastname">
+                                    <small style="color: red;" id="last_error"></small>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="mb-2 col-md-6">
+                                    <label for="email" class="form-label">Email ID</label>
+                                    <input type="email" class="form-control" id="email">
+                                    <small style="color: red;" id="email_error"></small>
+                                </div>
+                                <div class="mb-2 col-md-6">
+                                    <label for="phone" class="form-label">Mobile No</label>
+                                    <input type="text" class="form-control" id="phone">
+                                    <small style="color: red;" id="number_error"></small>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="mb-2 col-md-6">
+                                    <label for="username" class="form-label">Username</label>
+                                    <input type="text" class="form-control" id="username">
+                                    <small style="color: red;" id="username_error"></small>
+                                </div>
+                                <div class="mb-2 col-md-6">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="gender"
+                                            id="gender" value="male">
+                                        <label class="form-check-label" for="gender">Male</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="gender"
+                                            id="gender" value="female">
+                                        <label class="form-check-label" for="gender">Female</label>
+                                        <small style="color: red;" id="gender_error"></small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="mb-2 col-md-6">
+                                    <label for="occupation" class="form-label">Occupation</label>
+                                    <input type="text" class="form-control" id="occupation">
+                                    <small style="color: red;" id="occupation_error"></small>
+                                </div>
+                                <div class="mb-2 col-md-6">
+                                    <label for="address" class="form-label">Address</label>
+                                    <textarea class="form-control" id="address" rows="1"></textarea>
+                                    <small style="color: red;" id="address_error"></small>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="mb-2 col-md-6">
+                                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="password">
+                                    <small style="color: red;" id="password_error"></small>
+                                </div>
+                                <div class="mb-2 col-md-6">
+                                    <label for="confirm" class="form-label">Confirm Password</label>
+                                    <input type="password" class="form-control" id="confirm">
+                                    <small style="color: red;" id="confirm_error"></small>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button type="button" class="btn btn-primary parent_btn" id="parent_btn">Next</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <form class="" id="">
+                        <h5 class="text-center"><u>CREATE YOUR CHILD PROFILE HERE</u></h5>
+
+                        <div id="clone_div">
+
+                            <div id="child_div1" class="child_div">
+
+
+                                <div class="text-center" id="add_delete">
+
+                                    <div id="add_btn" class=" p-3">
+                                        <button type="button" class="btn btn-primary btn-sm mb-2" id="add"
+                                            onclick=""><span class="material-symbols-outlined">
+                                                add
+                                            </span></button>
+                                        <h6>Click to add another</h6>
+                                    </div>
+
+
+
+                                </div>
+                                <form action="" method="POST" id="child_form">
+                                    <div class="row border border-2 p-3 mx-auto mb-2">
+
+                                        <div class="mb-2 col-md-4">
+                                            <label for="child_name0" class="form-label">Child Name</label>
+                                            <input type="text" class="form-control" id="child_name0">
+                                        </div>
+                                        <div class="mb-2 col-md-4">
+                                            <label for="child_dateofbirth0" class="form-label">Date of Birth</label>
+                                            <input type="date" class="form-control" id="child_dateofbirth0">
+                                        </div>
+
+                                        <div class="mb-2 col-md-1">
+                                            <label for="child_height0" class="form-label">Height</label>
+                                            <input type="text" class="form-control" id="child_height0">
+                                        </div>
+                                        <div class="mb-2 col-md-1">
+                                            <label for="child_weight0" class="form-label">Weight</label>
+                                            <input type="text" class="form-control" id="child_weight0">
+                                        </div>
+                                        <div class="mb-2 col-md-2 ">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="child_gender0"
+                                                    id="child_gender0" value="male">
+                                                <label class="form-check-label" for="child_gender0">Male</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="child_gender0"
+                                                    id="child_gender0" value="female">
+                                                <label class="form-check-label" for="child_gender0">Female</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="mb-2 col-md-6">
+                                                <label for="child_medical_information0" class="form-label">Medical
+                                                    Information</label>
+                                                <textarea class="form-control" id="child_medical_information0"
+                                                    rows="1"></textarea>
+                                            </div>
+                                            <div class="mb-2 col-md-6">
+                                                <label for="child_dieatry0" class="form-label">Dieatry
+                                                    Prefrences/Restrictions</label>
+                                                <textarea class="form-control" id="child_dieatry0" rows="1"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="mb-2 col-md-6">
+                                                <label for="child_pickup_list0" class="form-label">Authorized Pickup
+                                                    list</label>
+                                                <textarea class="form-control" id="child_pickup_list0"
+                                                    rows="1"></textarea>
+                                            </div>
+                                            <div class="mb-2 col-md-6">
+                                                <label for="child_parental_preferences0" class="form-label">Parental
+                                                    Preferences</label>
+                                                <textarea class="form-control" id="child_parental_preferences0"
+                                                    rows="1"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="false"
+                                aria-controls="collapseOne">Previous</button>
+                            <button type="button" class="btn btn-primary" id="register_btn">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </form>
+
+        <!-- <form method="POST" class="">
+            {% csrf_token %}
+
             <div class="row pt-3 d-flex">
                 <div class="col d-flex form-outline">
-                    <label class="form-label pt-2 pe-5  text-dark label_style" for="name">Name:</label>
+                    <label class="form-label text-dark text-dark pt-2 pe-5  text-dark label_style" for="name">Name:</label>
                     <input class="form-control styles ms-5" type="text" id="name" name="regname"
                         placeholder="Type your name here">
                     <div class="invalid-feedback" id="name_error">
                     </div>
                 </div>
                 <div class="col d-flex form-outline">
-                    <label class="form-label pt-2 pe-5 me-4 text-dark label_style" for="address">Address:</label>
+                    <label class="form-label text-dark text-dark pt-2 pe-5 me-4 text-dark label_style" for="address">Address:</label>
                     <textarea class="form-control styles ms-5" name="regaddress" type="address" id="address" row="3"
                         placeholder="Type your address here"></textarea>
                     <div class="invalid-feedback" id="address_error">
@@ -32,7 +234,7 @@
             </div>
             <div class="row pt-3">
                 <div class="col d-flex form-outline">
-                    <label class="form-label pt-2 pe-5 text-dark label_style" for="email">Email_Id:</label>
+                    <label class="form-label text-dark text-dark pt-2 pe-5 text-dark label_style" for="email">Email_Id:</label>
                     <input class="form-control ms-2 styles " type="email" name="regemail" id="email"
                         placeholder="Type your email address here">
                     <div class="invalid-feedback" id="email_error">
@@ -40,7 +242,7 @@
                     <div class="" style="color: red;" id="error_message"></div>
                 </div>
                 <div class="col d-flex form-outline">
-                    <label class="form-label pt-2 pe-5 text-dark label_style" for="occupation">Occupation:</label>
+                    <label class="form-label text-dark text-dark pt-2 pe-5 text-dark label_style" for="occupation">Occupation:</label>
                     <input class="form-control styles ms-5 " type="text" id="occupation" name="regoccupation"
                         placeholder="your occupation is">
                     <div class="invalid-feedback" id="occupation_error">
@@ -51,14 +253,14 @@
             </div>
             <div class="row pt-3">
                 <div class="col d-flex form-outline">
-                    <label class="form-label pt-2 pe-4  text-dark label_style" for="number">Mobile_No:</label>
+                    <label class="form-label text-dark text-dark pt-2 pe-4  text-dark label_style" for="number">Mobile_No:</label>
                     <input class="form-control  styles " type="text" id="number" name="regnumber"
                         placeholder="Type your phone number">
                     <div class="invalid-feedback" id="number_error">
                     </div>
                 </div>
                 <div class="col d-flex form-outline">
-                    <label class="form-label pt-2 pe-1 me-5 text-dark label_style" for="name">User_name:</label>
+                    <label class="form-label text-dark text-dark pt-2 pe-1 me-5 text-dark label_style" for="name">User_name:</label>
                     <input class="form-control styles ms-5 " type="text" id="username" name="regusername"
                         placeholder="Enter username">
                     <div class="invalid-feedback" id="username_error">
@@ -69,32 +271,27 @@
             <div class="row pt-3">
 
                 <div class="col d-flex form-outline">
-                    <label class="form-label  pt-2 pe-5 text-dark label_style" for="password">Password:</label>
+                    <label class="form-label text-dark text-dark  pt-2 pe-5 text-dark label_style" for="password">Password:</label>
                     <input class="form-control styles ms-1" type="password" id="password" name="regpassword"
                         placeholder="create a password">
                     <div class="invalid-feedback" id="password_error">
                     </div>
                 </div>
                 <div class="col d-flex form-outline">
-                    <label class="form-label pt-2 pe-2 text-dark label_style" for="address">Confirm_password:</label>
+                    <label class="form-label text-dark text-dark pt-2 pe-2 text-dark label_style" for="address">Confirm_password:</label>
                     <input class="form-control styles" type="password" id="confirm" placeholder="re-enter the password">
                     <div class="invalid-feedback" id="confirm_error"> </div>
                 </div>
-                
+
             </div>
-           
+
             <div class="text-center pt-4">
-                <small class="text-center d-flex justify-content-center w-100" style="color: red; background-color: ;" id="reg_error_msg">{{message}}</small>
-                <button class="btn btn-success btn-sm w-25" id="submit" type="submit">REGISTER</button>
+                <small class="text-center d-flex justify-content-center w-100" style="color: red; background-color: ;"
+                    id="reg_error_msg">{{message}}</small>
+                <button class="btn btn-success btn-sm w-25" id="submit" type="submit">Next</button>
 
             </div>
-
-
-
-
-
-
-        </form>
+        </form> -->
     </div>
 </div>
 <script>
@@ -118,7 +315,7 @@
                 $("#name").css("border-color", "");
                 $("#name_error").hide();
                 nameError = true;
-                
+
             }
         }
         $("#address_error").hide();
@@ -195,21 +392,21 @@
 
         $("#number_error").hide();
         let numberError = true;
-        $("#number").keyup(function () {
+        $("#phone").keyup(function () {
             validateNumber();
         });
 
         function validateNumber() {
-            let numberValue = $("#number").val();
+            let numberValue = $("#phone").val();
             if (numberValue.length == "") {
                 $("#number_error").show();
                 $("#number_error").html("*please fill this field");
-                $("#number").css("border-color", "red");
+                $("#phone").css("border-color", "red");
                 numberError = false;
                 return false;
             } else {
                 $("#number_error").html("");
-                $("#number").css("border-color", "");
+                $("#phone").css("border-color", "");
                 $("#number_error").hide();
                 numberError = true;
             }
@@ -325,7 +522,7 @@
         //         })
         // }
 
-        $("#submit").click(function () {
+        $(".parent_btn").click(function () {
 
             validateName();
             validateAddress();
@@ -341,6 +538,12 @@
             if (nameError == true && addressError == true && emailError == true && occupationError == true
                 && numberError == true && usernameError == true && passwordError == true && confirmError == true) {
                 // register();
+                $(this).attr("data-bs-toggle", "collapse")
+                $(this).attr("data-bs-target","#collapseTwo")
+                $(this).attr("aria-expanded","false")
+                $(this).attr("aria-controls","collapseTwo")
+                jQuery(this).trigger("click")
+                
                 return true;
             } else {
                 return false;
@@ -350,5 +553,164 @@
 
 
     })
+</script>
+<script>
+    $(document).ready(function () {
+        var i = 0;
+        $("#add").click(function () {
+            i++;
+            child_html = `<div id="child_div${i}" class="child_div">
+                    <form action="" method="POST" id="child_form">
+                    <div class="border border-2 p-3 mx-auto mb-2">
+                        <div id="delete_btn" class="d-flex flex-row-reverse delete_btn ps-1">
+                            <button type="button" class="btn btn-danger btn-sm mb-2 delete_btn" id="${i}" onclick="">
+                                <spanclass="material-symbols-outlined">Delete</span></button>
+                            </div>
+                           
+                            <div class="row"> 
+                                <div class="mb-2 col-md-4">
+                                    <label for="child_name${i}" class="form-label">Child Name</label>
+                                    <input type="text" class="form-control" id="child_name${i}">
+                                </div>
+                                <div class="mb-2 col-md-4">
+                                    <label for="child_dateofbirth${i}" class="form-label">Date of Birth</label>
+                                    <input type="date" class="form-control" id="Child_dateofbirth${i}">
+                                </div>
+                                <div class="mb-2 col-md-1">
+                                    <label for="child_height${i}" class="form-label">Height</label>
+                                    <input type="text" class="form-control" id="child_height${i}">
+                                </div>
+                                <div class="mb-2 col-md-1">
+                                    <label for="child_weight" class="form-label">Weight</label>
+                                     <input type="text" class="form-control" id="child_weight${i}">
+                                    </div>
+                                    <div class="mb-2 col-md-2 d-flex align-items-end">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="child_gender" id="child_gender${i}" value="male">
+                                            <label class="form-check-label" for="gender_male${i}">Male</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="child_gender" id="child_gender${i}" value="female">
+                                            <label class="form-check-label" for="child_gender${i}">Female</label>
+                                        </div>
+                                    </div>
+                                    </div>
+                                        <div class="row"> <div class="mb-2 col-md-6">
+                                            <label for="child_medical_information${i}" class="form-label">Medical Information</label>
+                                            <textarea class="form-control" id="child_medical_information${i}"rows="1">
+
+                                        </textarea>
+                                        </div>
+                                        <div class="mb-2 col-md-6">
+                                            <label for="child_dieatry${i}" class="form-label">Dieatry Prefrences/Restrictions</label>
+                                            <textarea class="form-control" id="child_dieatry${i}" rows="1">
+
+                                        </textarea>
+                                        </div>
+                                    </div>
+                                        <div class="row">
+                                            <div class="mb-2 col-md-6">
+                                            <label for="child_pickup_list${i}" class="form-label">Authorized Pickup list</label>
+                                            <textarea class="form-control" id="child_pickup_list${i}" rows="1">
+
+                                        </textarea>
+                                        </div>
+                                        <div class="mb-2 col-md-6">
+                                            <label for="child_parental_preferences${i}" class="form-label">Parental Preferences</label>
+                                            <textarea class="form-control" id="child_parental_preferences${i}" rows="1">
+
+                                        </textarea> </div>
+                                    </div>
+                                    </div>
+                                    </form>
+                                    </div>`
+
+            $("#clone_div").append(child_html);
+
+        });
+        $(document).on('click', '.delete_btn', function () {
+            var child_div_id = $(this).attr('id');
+            $("#child_div" + child_div_id + '').remove();
+        });
+
+        $(document).on("click", "#register_btn", function () {
+            let clone_div = $("#clone_div").children()
+            var arr = [];
+            i = 0;
+            //Parent details
+            let name = $("#name").val()
+            let lastname = $("#lastname").val()
+            let phone = $("#phone").val()
+            let email = $("#email").val()
+            let username = $("#username").val()
+            let gender = $("#gender").val()
+            let occupation = $("#occupation").val()
+            let address = $("#address").val()
+            let password = $("#password").val()
+            $(clone_div).each(function () {
+
+                // Child details
+                let child_name = $(this).find("#child_name" + i).val();
+                let child_dateofbirth = $(this).find("#child_dateofbirth" + i).val();
+                let child_height = $(this).find("#child_height" + i).val();
+                let child_weight = $(this).find("#child_weight" + i).val();
+                let child_gender = $(this).find("#child_gender" + i + ":checked").val();
+                let child_medical_information = $(this).find("#child_medical_information" + i).val();
+                let child_dieatry = $(this).find("#child_dieatry" + i).val();
+                let child_pickup_list = $(this).find("#child_pickup_list" + i).val();
+                let child_parental_preferences = $(this).find("#child_parental_preferences" + i).val();
+                let child_details = {
+                    "name": jQuery.trim(child_name),
+                    "dateofbirth": jQuery.trim(child_dateofbirth),
+                    "height": jQuery.trim(child_height),
+                    "weight": jQuery.trim(child_weight),
+                    "gender": jQuery.trim(child_gender),
+                    "medical_information": jQuery.trim(child_medical_information),
+                    "dieatry": jQuery.trim(child_dieatry),
+                    "pickup_list": jQuery.trim(child_pickup_list),
+                    "parental_preferences": jQuery.trim(child_parental_preferences)
+                }
+                arr.push(child_details)
+                i++;
+                //I should store id in an array
+            });
+            console.log("length :",arr)
+            let length = arr.length
+            const csrftoken = document.querySelector(
+                "[name=csrfmiddlewaretoken]"
+            ).value;
+            $.ajaxSetup({
+                headers: {
+                    "x-CSRFToken": csrftoken,
+                },
+            });
+            $.ajax({
+                url: "/parent_registration",
+                type: "POST",
+                data: {
+                    'first_name': jQuery.trim(name),
+                    'last_name': jQuery.trim(lastname),
+                    'phone_no': jQuery.trim(phone),
+                    'email_id': jQuery.trim(email),
+                    'gender': jQuery.trim(gender),
+                    'username': jQuery.trim(username),
+                    'occupation': jQuery.trim(occupation),
+                    'address': jQuery.trim(address),
+                    'password': jQuery.trim(password),
+                    'child_details[]': JSON.stringify(arr),
+                    'length': length
+                },
+                success: function (response) {
+                    console.log("registration success")
+                    window.location.reload()
+                    alert("Congratulations! You have successfully registered.")
+                }
+
+            });
+           
+        });
+
+    });
+
 </script>
 {% endblock %}

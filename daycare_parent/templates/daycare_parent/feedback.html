@@ -6,55 +6,13 @@
     <div class="container p-5">
         <h2 class="text-uppercase text-center fw-bold text-dark report_font">give us your feedback!</h2>
         <form class="px-5 pt-2" method="POST">
-            {% csrf_token %}
-            <div class="row mb-3">
-                <div class="col-md-2">
-                    <label class="form-label text-dark  report_font" id="name"
-                        for="number">Parent_Name:</label>
-                </div>
-                <div class="col-md-10">
-                    <input class="form-control" id="name" name="feed_name" type="text" placeholder="Enter your name here">
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-md-2">
-                    <label class="form-label text-dark report_font" id="phone_no" for="number">Phone_No:</label>
-                </div>
-                <div class="col-md-10">
-                    <input class="form-control" id="number" name="feed_no" type="text"
-                        placeholder="Enter your mobile number">
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-md-2">
-                    <label class="form-label text-dark report_font" id="email"
-                        for="email">Email_Id:</label>
-                </div>
-                <div class="col-md-10">
-                    <input class="form-control" id="email" name="feed_email" type="email"
-                        placeholder="Enter your email address">
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-md-2">
-                    <label class="form-label text-dark report_font" id="feedback"
-                        for="feedback">Feedback:</label>
-                </div>
-                <div class="col-md-10">
-                    <textarea class="form-control" id="feedback" name="feed_feedback"
+            {% csrf_token %}  
+                <div class="text-center mb-2">
+                    <textarea class="" id="feedback" cols="50" rows="8" name="feed_description"
                         placeholder="Help us to improve with your feedback"></textarea>
                 </div>
-            </div>
+          
 
-            <div class="row mb-3">
-                <div class="col-md-2">
-                    <label class="form-label text-dark  report_font" id="date"
-                        for="date">Date:</label>
-                </div>
-                <div class="col-md-10">
-                    <input class="form-control "  type="date" id="date" name="feed_date" placeholder="Enter the date">
-                </div>
-            </div>
             <div class="row">
                 <div class="col-md-12 d-flex justify-content-center">
                 <input class="btn btn-danger btn-lg" id="submit" type="submit" value="Post Feedback">

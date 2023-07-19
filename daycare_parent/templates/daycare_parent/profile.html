@@ -11,7 +11,7 @@
 
             <div class="row">
 
-                <div class="col-md-4 col-sm-12 d-flex">
+                <div class="col-md-6 col-sm-12 d-flex">
                     <div class="row">
                         <div class="col-md-6">
                             <label class="form-label text-dark report_font1" for="name">Child_Name:</label>
@@ -24,7 +24,7 @@
 
                 </div>
 
-                <div class="col-md-3 col-sm-12 d-flex">
+                <div class="col-md-6 col-sm-12 d-flex">
                     <div class="row">
                         <div class="col-md-4">
                             <label class="form-label  text-dark report_font1" for="dateofbirth">Date-of
@@ -32,6 +32,36 @@
                         </div>
                         <div class="col-md-8">
                             <input class="form-control border-secondary" type="date" id="dateofbirth">
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+
+
+            <div class="row py-md-4">
+                <div class="col-md-3 d-flex">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="form-label text-dark report_font1" for="height">Height:</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input class="form-control border-secondary" type="text" id="height">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4 d-flex ">
+                    <div class="row">
+                        <div class="col-md-6">
+
+                            <label class="form-label text-dark report_font1" for="weight">Weight:</label>
+                        </div>
+                        <div class="col-md-6">
+
+                            <input class="form-control  border-secondary " type="text" id="weight">
                         </div>
                     </div>
                 </div>
@@ -62,125 +92,72 @@
                     </div>
 
                 </div>
+
             </div>
 
 
 
             <div class="row py-md-3">
-                <div class="col-md-4 d-flex">
+
+                <div class="col-md-6 d-flex">
                     <div class="row">
-                        <div class="col-md-6">
-                            <label class="form-label text-dark report_font1" for="parentname">Parent_Name:</label>
+                        <div class="col-md-4">
+                            <label class="form-label text-dark report_font1" for="medical_info">Medical
+                                information:</label>
                         </div>
-                        <div class="col-md-6">
-                            <input class="form-control border-secondary  styles " type="text" id="parentname">
+                        <div class="col-md-8">
+                            <textarea class="form-control  border-secondary profile" type="textarea" id="medical_info"
+                                row="2"
+                                placeholder="Any known allergies(food,environmental or medication), chronic health conditions or medical concers"></textarea>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-4 d-flex ">
+                <div class="col-md-6 d-flex">
                     <div class="row">
-                        <div class="col-md-6">
-                            <label class="form-label  text-dark report_font1" for="number">Contact Number:</label>
+                        <div class="col-md-4">
+                            <label class="form-label text-dark report_font1" for="dietary">Dietary Preferences/
+                                Restrictions:</label>
                         </div>
-                        <div class="col-md-6">
-                            <input class="form-control  border-secondary " type="text" id="number">
-                        </div>
-                        
-                        </div>
-                        </div>
-
-                        <div class="col-md-2 d-flex">
-                            <div class="row">
-                                <div class="col-md-8">
-                                    <label class="form-label text-dark report_font1" for="height">Height:</label>
-                                </div>
-                                <div class="col-md-4">
-                                    <input class="form-control border-secondary" type="text" id="height">
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="col-md-2 d-flex ">
-                            <div class="row">
-                                <div class="col-md-8">
-
-                                    <label class="form-label text-dark report_font1" for="weight">Weight:</label>
-                                </div>
-                                <div class="col-md-4">
-
-                                    <input class="form-control  border-secondary " type="text" id="weight">
-                                </div>
-                            </div>
+                        <div class="col-md-8">
+                            <textarea class="form-control border-secondary profile" type="textarea" id="dietary" row="3"
+                                placeholder="Mention any specific dietary needs, food preferences, or restrictions such as vegetarian,or any food allergies."></textarea>
                         </div>
                     </div>
-
-
-
-                    <div class="row py-md-3">
-
-                        <div class="col-md-6 d-flex">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <label class="form-label text-dark report_font1" for="medical_info">Medical
-                                        information:</label>
-                                </div>
-                                <div class="col-md-8">
-                                    <textarea class="form-control  border-secondary profile" type="textarea"
-                                        id="medical_info" row="2"
-                                        placeholder="Any known allergies(food,environmental or medication), chronic health conditions or medical concers"></textarea>
-                                </div>
-                            </div>
+                </div>
+            </div>
+            <div class="row py-md-3">
+                <div class="col-md-6 d-flex">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="form-label  text-dark report_font1" for="pickup">Authorized
+                                Pickup_list:</label>
                         </div>
-                        <div class="col-md-6 d-flex">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <label class="form-label text-dark report_font1" for="dietary">Dietary Preferences/
-                                        Restrictions:</label>
-                                </div>
-                                <div class="col-md-8">
-                                    <textarea class="form-control border-secondary profile" type="textarea" id="dietary"
-                                        row="3"
-                                        placeholder="Mention any specific dietary needs, food preferences, or restrictions such as vegetarian,or any food allergies."></textarea>
-                                </div>
-                            </div>
+                        <div class="col-md-8">
+                            <textarea class="form-control border-secondary profile " type="textarea" id="pickup" row="3"
+                                placeholder="Include a list of individuals authorized to pickup the child from the daycare."></textarea>
                         </div>
                     </div>
-                    <div class="row py-md-3">
-                        <div class="col-md-6 d-flex">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <label class="form-label  text-dark report_font1" for="pickup">Authorized
-                                        Pickup_list:</label>
-                                </div>
-                                <div class="col-md-8">
-                                    <textarea class="form-control border-secondary profile " type="textarea" id="pickup"
-                                        row="3"
-                                        placeholder="Include a list of individuals authorized to pickup the child from the daycare."></textarea>
-                                </div>
-                            </div>
+                </div>
+                <div class="col-md-6 d-flex ">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="form-label text-dark report_font1" for="preferences">Parental
+                                preferences:</label>
                         </div>
-                        <div class="col-md-6 d-flex ">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <label class="form-label text-dark report_font1" for="preferences">Parental
-                                        preferences:</label>
-                                </div>
-                                <div class="col-md-8">
-                                    <textarea class="form-control border-secondary  profile" type="textarea" id="pickup"
-                                        row="3" placeholder="Note any specific preferences from parents."></textarea>
-                                </div>
-                            </div>
+                        <div class="col-md-8">
+                            <textarea class="form-control border-secondary  profile" type="textarea" id="pickup" row="3"
+                                placeholder="Note any specific preferences from parents."></textarea>
                         </div>
                     </div>
-                    <div class="text-center px-2">
-                        <input class="btn btn-dark btn-lg" id="submit" type="submit" value="Create Profile">
-                        <input class="btn btn-dark btn-lg " id="submit" type="submit" value="Update Profile">
+                </div>
+            </div>
+            <div class="text-center px-2">
+                <input class="btn btn-dark btn-lg" id="submit" type="submit" value="Create Profile">
+                <input class="btn btn-dark btn-lg " id="submit" type="submit" value="Update Profile">
 
 
-                    </div>
-              
+            </div>
+
         </form>
     </div>
 </div>

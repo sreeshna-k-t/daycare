@@ -3,30 +3,36 @@
 {% block content %}
     <!-- <div class=" vh-100"> -->
         <div class="container p-5">
-            <h1 class="text-uppercase text-center fw-bold text-success bg-dark pb-md-2 pt-md-2">parent registrations
+            <h1 class="text-uppercase text-center fw-bold text-success bg-dark pb-md-2 pt-md-2">parent registration Details
             </h1>
-            <table class="table bg-light card_style text-light fw-bold">
+            <table class="table-sm bg-light">
                 <thead>
                     <tr>
-                        <th scope="col">Parent_Name</th>
+                        <th scope="col">Parent FirstName</th>
+                        <th scope="col">Parent LastName</th>
                         <th scope="col">Email</th>
                         <th scope="col">Address</th>
                         <th scope="col">Phone_No</th>
                         <th scope="col">Occupation</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">View Child</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for parent in all_parents %}
                     <tr>
-                        <th>{{parent.name}}</th>
+                        <td>{{parent.name}}</td>
+                        <td>{{parent.last_name}}</td>
                         <td>{{parent.email_id}}</td>
                         <td>{{parent.address}}</td>
                         <td>{{parent.phone_no}}</td>
                         <td>{{parent.occupation}}</td>
+                        <td>{{parent.gender}}</td>
+                        <td><a href="{% url 'daycare_admin:viewchild' parent.id %}" class="btn btn-primary btn-sm">Click</a></td>
                     </tr>
                     {% endfor %}
                    
-                </tbody>
+                </tbody>    
             </table>
         </div>
     <!-- </div> -->

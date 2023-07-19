@@ -21,10 +21,10 @@
                     {% for feedback in all_feedback %}
 
                     <tr>
-                        <th>{{feedback.feed_name}}</th>
-                        <td>{{feedback.feed_no}}</td>
-                        <td>{{feedback.feed_email}}</td>
-                        <td>{{feedback.feed_feedback}}</td>
+                        <th>{{feedback.parent_fk.name}}</th>
+                        <td>{{feedback.parent_fk.phone_no}}</td>
+                        <td>{{feedback.parent_fk.email_id}}</td>
+                        <td>{{feedback.feed_description}}</td>
                         <td>{{feedback.feed_date}}</td>
                         
                     </tr>

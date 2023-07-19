@@ -8,6 +8,7 @@ urlpatterns = [
     path('staff_registration', views.staff_registration, name='staffreg'),
     path('report', views.report, name='report'),
     path('viewparent', views.viewparent, name='viewparent'),
+    path('viewchild/<int:id>', views.viewchild, name='viewchild'),
     path('viewpayment', views.viewpayment, name='viewpayment'),
     path('viewfeedback', views.viewfeedback, name='viewfeedback'),
 

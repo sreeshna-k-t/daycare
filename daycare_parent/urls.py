@@ -12,5 +12,6 @@ urlpatterns = [
     path('viewnutritions', views.viewnutritions, name='viewnutritions'),
     path('viewreport', views.viewreport, name='viewreport'),
     path('viewattendance', views.viewattendance, name='viewattendance'),
+    path('logout', views.logout, name="logout"),
 
 ]
