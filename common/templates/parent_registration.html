@@ -18,15 +18,15 @@
                             data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                             1
                         </button>
-                        <div class="step-title">
+                        <div class="step-title text-dark">
                             Parent Details
                         </div>
                     </div>
                     <div class="step-item">
-                        <button class="step-button text-center collapsed parent_btn" id="parent_btn" type="button" >
+                        <button class="step-button text-center collapsed parent_btn" id="parent_btn" type="button">
                             2
                         </button>
-                        <div class="step-title">
+                        <div class="step-title text-dark">
                             Child Details
                         </div>
                     </div>
@@ -42,68 +42,75 @@
                             <input type="text" hidden name="csrfmiddlewaretoken" value="{{csrf_token}}" id="">
                             <div class="row">
                                 <div class="mb-2 col-md-6">
-                                    <label for="name" class="form-label">First Name</label>
+                                    <label for="name" class="form-label text-dark">First Name</label>
                                     <input type="text" class="form-control" id="name">
                                     <small style="color: red;" id="name_error"></small>
                                 </div>
                                 <div class="mb-2 col-md-6">
-                                    <label for="lastname" class="form-label">Last Name</label>
+                                    <label for="lastname" class="form-label text-dark">Last Name</label>
                                     <input type="text" class="form-control" name="lastname" id="lastname">
-                                    <small style="color: red;" id="last_error"></small>
+                                    <small style="color: red;" id="lastname_error"></small>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="mb-2 col-md-6">
-                                    <label for="email" class="form-label">Email ID</label>
+                                    <label for="email" class="form-label text-dark">Email ID</label>
                                     <input type="email" class="form-control" id="email">
                                     <small style="color: red;" id="email_error"></small>
                                 </div>
                                 <div class="mb-2 col-md-6">
-                                    <label for="phone" class="form-label">Mobile No</label>
+                                    <label for="phone" class="form-label text-dark">Mobile No</label>
                                     <input type="text" class="form-control" id="phone">
                                     <small style="color: red;" id="number_error"></small>
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="mb-2 col-md-6">
-                                    <label for="username" class="form-label">Username</label>
-                                    <input type="text" class="form-control" id="username">
-                                    <small style="color: red;" id="username_error"></small>
-                                </div>
-                                <div class="mb-2 col-md-6">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="gender"
-                                            id="gender" value="male">
-                                        <label class="form-check-label" for="gender">Male</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="gender"
-                                            id="gender" value="female">
-                                        <label class="form-check-label" for="gender">Female</label>
-                                        <small style="color: red;" id="gender_error"></small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="mb-2 col-md-6">
-                                    <label for="occupation" class="form-label">Occupation</label>
+                                    <label for="occupation" class="form-label text-dark">Occupation</label>
                                     <input type="text" class="form-control" id="occupation">
                                     <small style="color: red;" id="occupation_error"></small>
                                 </div>
                                 <div class="mb-2 col-md-6">
-                                    <label for="address" class="form-label">Address</label>
+                                    <label for="address" class="form-label text-dark">Address</label>
                                     <textarea class="form-control" id="address" rows="1"></textarea>
                                     <small style="color: red;" id="address_error"></small>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="mb-2 col-md-6">
-                                    <label for="exampleInputPassword1" class="form-label">Password</label>
+
+                                    <label for="gender" class="form-label text-dark">Gender</label>
+                                    <div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="gender" id="gender"
+                                                value="male">
+                                            <label class="form-check-label" for="gender">Male</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="gender" id="gender"
+                                                value="female">
+                                            <label class="form-check-label" for="gender">Female</label>
+
+                                        </div>
+                                    </div>
+                                    <small style="color: red;" id="gender_error"></small>
+                                </div>
+                                <div class="mb-2 col-md-6">
+                                    <label for="username" class="form-label text-dark">Username</label>
+                                    <input type="text" class="form-control" id="username">
+                                    <small style="color: red;" id="username_error"></small>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="mb-2 col-md-6">
+                                    <label for="exampleInputPassword1" class="form-label text-dark">Password</label>
                                     <input type="password" class="form-control" id="password">
                                     <small style="color: red;" id="password_error"></small>
                                 </div>
                                 <div class="mb-2 col-md-6">
-                                    <label for="confirm" class="form-label">Confirm Password</label>
+                                    <label for="confirm" class="form-label text-dark">Confirm Password</label>
                                     <input type="password" class="form-control" id="confirm">
                                     <small style="color: red;" id="confirm_error"></small>
                                 </div>
@@ -140,57 +147,67 @@
                                 <form action="" method="POST" id="child_form">
                                     <div class="row border border-2 p-3 mx-auto mb-2">
 
-                                        <div class="mb-2 col-md-4">
-                                            <label for="child_name0" class="form-label">Child Name</label>
+                                        <div class="mb-2 col-md-6">
+                                            <label for="child_name0" class="form-label text_dark">Child Name</label>
                                             <input type="text" class="form-control" id="child_name0">
                                         </div>
-                                        <div class="mb-2 col-md-4">
-                                            <label for="child_dateofbirth0" class="form-label">Date of Birth</label>
+                                        <div class="mb-2 col-md-6">
+                                            <label for="child_dateofbirth0" class="form-label text_dark">Date of
+                                                Birth</label>
                                             <input type="date" class="form-control" id="child_dateofbirth0">
                                         </div>
-
-                                        <div class="mb-2 col-md-1">
-                                            <label for="child_height0" class="form-label">Height</label>
-                                            <input type="text" class="form-control" id="child_height0">
-                                        </div>
-                                        <div class="mb-2 col-md-1">
-                                            <label for="child_weight0" class="form-label">Weight</label>
-                                            <input type="text" class="form-control" id="child_weight0">
-                                        </div>
-                                        <div class="mb-2 col-md-2 ">
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="child_gender0"
-                                                    id="child_gender0" value="male">
-                                                <label class="form-check-label" for="child_gender0">Male</label>
+                                        <div class="row">
+                                            <div class="mb-2 col-md-3">
+                                                <label for="child_height0" class="form-label text_dark">Height</label>
+                                                <input type="text" class="form-control" id="child_height0">
                                             </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="child_gender0"
-                                                    id="child_gender0" value="female">
-                                                <label class="form-check-label" for="child_gender0">Female</label>
+                                            <div class="mb-2 col-md-3">
+                                                <label for="child_weight0" class="form-label text_dark">Weight</label>
+                                                <input type="text" class="form-control" id="child_weight0">
+                                            </div>
+                                            <div class="mb-2 col-md-6">
+                                                <label for="child_gender" class="form-label text_dark">Gender</label>
+                                                <div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio"
+                                                            name="child_gender0" id="child_gender0" value="male">
+                                                        <label class="form-check-label text_dark"
+                                                            for="child_gender0">Male</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio"
+                                                            name="child_gender0" id="child_gender0" value="female">
+                                                        <label class="form-check-label text_dark"
+                                                            for="child_gender0">Female</label>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="mb-2 col-md-6">
-                                                <label for="child_medical_information0" class="form-label">Medical
+                                                <label for="child_medical_information0"
+                                                    class="form-label text_dark">Medical
                                                     Information</label>
                                                 <textarea class="form-control" id="child_medical_information0"
                                                     rows="1"></textarea>
                                             </div>
                                             <div class="mb-2 col-md-6">
-                                                <label for="child_dieatry0" class="form-label">Dieatry
+                                                <label for="child_dieatry0" class="form-label text_dark">Dieatry
                                                     Prefrences/Restrictions</label>
                                                 <textarea class="form-control" id="child_dieatry0" rows="1"></textarea>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="mb-2 col-md-6">
-                                                <label for="child_pickup_list0" class="form-label">Authorized Pickup
+                                                <label for="child_pickup_list0" class="form-label text_dark">Authorized
+                                                    Pickup
                                                     list</label>
                                                 <textarea class="form-control" id="child_pickup_list0"
                                                     rows="1"></textarea>
                                             </div>
                                             <div class="mb-2 col-md-6">
-                                                <label for="child_parental_preferences0" class="form-label">Parental
+                                                <label for="child_parental_preferences0"
+                                                    class="form-label text_dark">Parental
                                                     Preferences</label>
                                                 <textarea class="form-control" id="child_parental_preferences0"
                                                     rows="1"></textarea>
@@ -318,6 +335,28 @@
 
             }
         }
+        $("#lastname_error").hide();
+        let lastnameError = true;
+        $("#lastname").keyup(function () {
+            validateLastName();
+        });
+
+        function validateLastName() {
+            let lastnameValue = $("#lastname").val();
+            if (lastnameValue.length == "") {
+                $("#lastname_error").show();
+                $("#lastname_error").html("*please fill this field");
+                $("#lastname").css("border-color", "red");
+                lastnameError = false;
+                return false;
+            } else {
+                $("#lastname_error").html("");
+                $("#lastname").css("border-color", "");
+                $("#lastname_error").hide();
+                lastnameError = true;
+
+            }
+        }
         $("#address_error").hide();
         let addressError = true;
         $("#address").keyup(function () {
@@ -390,6 +429,7 @@
         }
 
 
+
         $("#number_error").hide();
         let numberError = true;
         $("#phone").keyup(function () {
@@ -416,6 +456,27 @@
         $("#username").keyup(function () {
             validateUsername();
         });
+        $("#gender_error").hide();
+        let genderError = true;
+        $("#gender").keyup(function () {
+            validateGender();
+        });
+
+        function validateGender() {
+            let genderValue = $("#gender").val();
+            if (genderValue.length == "") {
+                $("#gender_error").show();
+                $("#gender_error").html("*please fill this field");
+                $("#gender").css("border-color", "red");
+                genderError = false;
+                return false;
+            } else {
+                $("#gender_error").html("");
+                $("#gender").css("border-color", "");
+                $("#gender_error").hide();
+                genderError = true;
+            }
+        }
 
         function validateUsername() {
             let usernameValue = $("#username").val();
@@ -525,25 +586,27 @@
         $(".parent_btn").click(function () {
 
             validateName();
+            validateLastName();
             validateAddress();
             validateEmail();
             validateOccupation();
             validateNumber();
+            validateGender();
             validateUsername();
             validatePassword();
             validateConfirm();
 
 
 
-            if (nameError == true && addressError == true && emailError == true && occupationError == true
-                && numberError == true && usernameError == true && passwordError == true && confirmError == true) {
+            if (nameError == true && lastnameError == true && addressError == true && emailError == true && occupationError == true
+                && numberError == true && genderError == true && usernameError == true && passwordError == true && confirmError == true) {
                 // register();
                 $(this).attr("data-bs-toggle", "collapse")
-                $(this).attr("data-bs-target","#collapseTwo")
-                $(this).attr("aria-expanded","false")
-                $(this).attr("aria-controls","collapseTwo")
+                $(this).attr("data-bs-target", "#collapseTwo")
+                $(this).attr("aria-expanded", "false")
+                $(this).attr("aria-controls", "collapseTwo")
                 jQuery(this).trigger("click")
-                
+
                 return true;
             } else {
                 return false;
@@ -674,7 +737,7 @@
                 i++;
                 //I should store id in an array
             });
-            console.log("length :",arr)
+            console.log("length :", arr)
             let length = arr.length
             const csrftoken = document.querySelector(
                 "[name=csrfmiddlewaretoken]"
@@ -707,7 +770,7 @@
                 }
 
             });
-           
+
         });
 
     });

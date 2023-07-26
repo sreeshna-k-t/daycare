@@ -2,53 +2,105 @@
 {% load static %}
 {% block content %}
 
-    <div class=" vh-100 nutritions">
-        <div class="container pt-5">
-            <h2 class="text-uppercase text-center fw-bold text-success report_font pb-4">advanced nutritions planning</h2>
-            <div class="row">
-            <table class="table table-sm border-dark text-dark nutrition_style">
-                <thead>
-                  <tr>
-                    <th scope="col">Sl No.</th>
-                    <th scope="col">Child_Name</th>
-                    <th scope="col">Age</th>
-                    <th scope="col">Parent_Name</th>
-                    <th scope="col">Nutrition_Name</th>
-                    <th scope="col">Quantity/day</th>
-                    <th scope="col">Notes</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Hellen</td>
-                    <td>2</td>
-                    <td>swathy</td>
-                    <td>banana powder</td>
-                    <td>500ml</td>
-                    <td>avoid if any allergy produced</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>vyom</td>
-                    <td>4</td>
-                    <td>jacob</td>
-                    <td>raggi powder</td>
-                    <td>700 ml</td>
-                    <td>no notes</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>shiya</td>
-                    <td>3</td>
-                    <td>sharanya</td>
-                    <td>milk</td>
-                    <td>1 L</td>
-                    <td>dont give it early morning</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>                                                      
+<div class=" vh-100 nutritions">
+  <div class="container pt-5">
+    <h2 class="text-uppercase text-center fw-bold text-success report_font pb-4">advanced nutritions planning</h2>
+    <div class="row ps-5">
+      <table class="table table-sm border-dark text-dark nutrition_style">
+        <thead>
+          <tr>
+            <th scope="col">Nutrition_categories</th>
+            <th scope="col">Quantity/day</th>
+            <th scope="col">Notes</th>
+          </tr>
+
+
+
+
+          <tr>
+            <td>proteins</td>
+
+
+            <td>100ml</td>
+
+
+            <td>avoid if any allergy produced</td>
+          </tr>
+          <tr>
+
+            <td>Carbohydrates</td>
+
+            <td>700 ml</td>
+            <td>no notes</td>
+          </tr>
+          <tr>
+            <td>
+<!-- 
+              <select class="text-dark" id="fruits" multilpe="multiple" name="fruits"
+                aria-label="Default select example">
+                <option selected>Select Fruits and vegetables</option>
+                <option value="Avocado">Avocado</option>
+                <option value="Apple">Apple</option>
+                <option value="Banana">Banana</option>
+                <option value="Mango">Mango</option>
+                <option value="plums">plums</option>
+                <option value="Berries">Berries</option>
+                <option value="Grapes">Grapes</option>
+                <option value="frozen fruits">frozen fruits</option>
+                <option value="pears">pears</option>
+                <option value="carrots">carrots</option>
+                <option value="Beans">Beans</option>
+                <option value="Sweet potatoes">Sweet potatoes</option>
+              </select> -->
+              <div class="dropdown">
+                <button>Fruits and Vegetables</button>
+                <div class="dropdown-content">
+                    <label><input type="checkbox" name="fruits[]" value="Avocado">Avocado<input type="number" style="width: 40px;"></label>
+                    <label><input type="checkbox" name="fruits[]" value="Apple"> Apple<input type="number" style="width: 40px;"></label>
+                    <label><input type="checkbox" name="fruits[]" value="Banana"> Banana<input type="number" style="width: 40px;"></label>
+                </div>
             </div>
-            </div>
-            {% endblock %}
+            </td>
+
+            <td>1 L
+              
+            </td>
+            <td><textarea name="" id="" cols="30" rows="2"></textarea></td>
+          </tr>
+          <tr>
+            <td>Dairy products</td>
+
+            <td>1 L</td>
+            <td>dont give it early morning</td>
+          </tr>
+          </tbody>
+      </table>
+      
+      <script></script>
+    </div>
+  </div>
+</div>
+<style>
+  .dropdown {
+      position: relative;
+      display: inline-block;
+  }
+  .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 100px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+  }
+  .dropdown-content label {
+      color: black;
+      padding: 6px 8px;
+      text-decoration: none;
+      display: block;
+  }
+  .dropdown:hover .dropdown-content {
+      display: block;
+  }
+</style>
+{% endblock %}

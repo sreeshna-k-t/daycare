@@ -24,7 +24,8 @@
         <link rel="stylesheet" href="{% static 'assets/css/plugins.css' %}">
         <link rel="preload" href="{% static 'assets/css/fonts/dm.css' %}" as="style" onload="this.rel='stylesheet'">
         <link rel="stylesheet" href="{% static 'assets/css/custom.css' %}">
-        
+        <script src="https://unpkg.com/bootstrap-multiselect@0.9.13/dist/js/bootstrap-multiselect.js"></script>
+<link href="https://unpkg.com/bootstrap-multiselect@0.9.13/dist/css/bootstrap-multiselect.css" rel="stylesheet"/>
     </head>
     
     
@@ -68,32 +69,10 @@
 
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="{% url 'daycare_staff:viewprofile' %}">
-                            <i class="align-middle text-primary" data-feather="meh"></i> <span class="align-middle">Child Profiles
+                            <i class="align-middle text-primary" data-feather="slack"></i> <span class="align-middle">Update child Menu
                                </span>
                         </a>
                     </li>
-
-
-
-
-
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="{% url 'daycare_staff:attendance' %}">
-                            <i class="align-middle text-primary" data-feather="user-check"></i> <span class="align-middle">Track Attendance
-                                </span>
-                        </a>
-                    </li>
-
-
-
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="{% url 'daycare_staff:nutritions' %}">
-                            <i class="align-middle text-primary" data-feather="slack"></i> <span class="align-middle">Update Child Menu
-                                </span>
-                        </a>
-                    </li>
-
-
                 </ul>
 
 

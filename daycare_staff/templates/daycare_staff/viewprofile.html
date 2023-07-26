@@ -7,35 +7,29 @@
         <table class="table table-sm border-dark text-dark nutrition_style">
             <thead>
               <tr>
-                <th scope="col">Sl No.</th>
+    
                 <th scope="col">Child_Name</th>
-                <th scope="col">Age</th>
-                <th scope="col">gender</th>
-                <th scope="col">Parent Name</th>
-                <th scope="col">contact number</th>
+                <th scope="col">Date_of_Birth</th>
                 <th scope="col">height</th>
                 <th scope="col">weight</th>
                 <th scope="col">Medical information</th>
                 <th scope="col">Dietary Preferences/Restrictions</th>
-                <th scope="col">Authorized pickup list</th>
-                <th scope="col">Parental Preferences</th>
+                <th scope="col">Add Nutritions</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Hellen</td>
-                <td>2</td>
-                <td>female</td>
-                <td>swathy</td>
-                <td>9778258161</td>
-                <td>40</td>
-                <td>15</td>
-                <td>No allergies</td>
-                <td>vegetarian</td>
-                <td>john,swathy</td>
-                <td>Nothing</td>
+             
+                {% for child in all_child %}
+                <tr>
+                <td>{{child.name}}</td>
+                <td>{{child.dateofbirth}}</td>
+                <td>{{child.height}}</td>
+                <td>{{child.weight}}</td>
+                <td>{{child.medical_information}}</td>
+                <td>{{child.dieatry_preferences}}</td>
+                <td><a href="{% url 'daycare_staff:nutritions' %}" class="btn btn-primary btn-sm">Click</a></td>
               </tr>
+              {% endfor %}
             
             </tbody>
           </table>

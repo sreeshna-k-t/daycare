@@ -18,8 +18,37 @@ def payment(request):
 
 
 def profile(request):
+    parent_fk = request.session['user_id']
+    all_child = ChildRegister.objects.filter(parent_fk=parent_fk)
 
-    return render(request, "daycare_parent/profile.html")
+    return render(request, "daycare_parent/profile.html", {"all_child": all_child})
+
+
+def edit_child(request, id):
+    child = ChildRegister.objects.get(id=id)
+    if request.method == 'POST':
+        name = request.POST['childname']
+        dob = request.POST['childdob']
+        gender = request.POST['childgender']
+        height = request.POST['childheight']
+        weight = request.POST['childweight']
+        medical = request.POST['childmedical']
+        dieatry = request.POST['childdieatry']
+        pickup = request.POST['childpickup']
+        preferences = request.POST['childpreferences']
+        ChildRegister.objects.filter(id=id).update(
+            name=name,
+            # dateofbirth=dob,
+            height=height,
+            weight=weight,
+            gender=gender,
+            medical_information=medical,
+            dieatry_preferences=dieatry,
+            pickup_list=pickup,
+            parental_preferences=preferences
+        )
+        return redirect("daycare_parent:profile")
+    return render(request, "daycare_parent/edit_child.html", {"child": child})
 
 
 def feedback(request):

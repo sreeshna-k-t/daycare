@@ -1,0 +1,95 @@
+{% extends 'daycare_admin/admin.html' %}
+{% load static %}
+{% block content %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="row border bg-success border-2 p-3 mx-auto ">
+
+        <div class="mb-2 col-md-6">
+            <label for="child_name0" class="form-label text_dark">Child Name</label>
+            <input type="text" class="form-control" name="childname" id="child_name0" value="{{child.name}}">
+        </div>
+        <div class="mb-2 col-md-6">
+            <label for="child_dateofbirth0" class="form-label text_dark">Date of
+                Birth</label>
+            <input type="text" class="form-control" name="childdob" id="child_dateofbirth0" value="{{child.dateofbirth}}">
+        </div>
+        <div class="row">
+            <div class="mb-2 col-md-3">
+                <label for="child_height0" class="form-label text_dark">Height</label>
+                <input type="text" class="form-control" name="childheight" id="child_height0" value="{{child.height}}">
+            </div>
+            <div class="mb-2 col-md-3">
+                <label for="child_weight0" class="form-label text_dark">Weight</label>
+                <input type="text" class="form-control" name="childweight" id="child_weight0" value="{{child.weight}}">
+            </div>
+            <div class="mb-2 col-md-6">
+                <label for="child_gender" class="form-label text_dark">Gender</label>
+                <div>
+                    {% if child.gender == "male" %}
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" checked
+                             name="childgender" id="child_gender0" value="male">
+                        <label class="form-check-label text_dark"
+                            for="child_gender0">Male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio"
+                            name="childgender" id="child_gender0" value="female">
+                        <label class="form-check-label text_dark"
+                            for="child_gender0">Female</label>
+                    </div>
+                    {% else %}
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" 
+                             name="childgender" id="child_gender0" value="male">
+                        <label class="form-check-label text_dark"
+                            for="child_gender0">Male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" checked
+                            name="childgender" id="child_gender0" value="female">
+                        <label class="form-check-label text_dark"
+                            for="child_gender0">Female</label>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mb-2 col-md-6">
+                <label for="child_medical_information0"
+                    class="form-label text_dark">Medical
+                    Information</label>
+                <textarea class="form-control" name="childmedical" id="child_medical_information0"
+                    rows="1">{{child.medical_information}}</textarea>
+            </div>
+            <div class="mb-2 col-md-6">
+                <label for="child_dieatry0" class="form-label text_dark">Dieatry
+                    Prefrences/Restrictions</label>
+                <textarea class="form-control" name="childdieatry" id="child_dieatry0" rows="1">{{child.dieatry_preferences}}</textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mb-2 col-md-6">
+                <label for="child_pickup_list0" class="form-label text_dark">Authorized
+                    Pickup
+                    list</label>
+                <textarea class="form-control" name="childpickup" id="child_pickup_list0" 
+                    rows="1">{{child.pickup_list}}</textarea>
+            </div>
+            <div class=" col-md-6">
+                <label for="child_parental_preferences0"
+                    class="form-label text_dark">Parental
+                    Preferences</label>
+                <textarea class="form-control" name="childpreferences" id="child_parental_preferences0" 
+                    rows="1">{{child.parental_preferences}}</textarea>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center ">
+    <button class="btn btn-primary w-100" type="submit">Update</button>
+</div>
+
+</form>
+{% endblock %}

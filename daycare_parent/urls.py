@@ -8,6 +8,7 @@ urlpatterns = [
     path('', views.parenthome, name='parenthome'),
     path('feedback', views.feedback, name='feedback'),
     path('profile', views.profile, name='profile'),
+    path('edit/<int:id>', views.edit_child, name='edit_child'),
     path('payment', views.payment, name='payment'),
     path('viewnutritions', views.viewnutritions, name='viewnutritions'),
     path('viewreport', views.viewreport, name='viewreport'),
