@@ -1,7 +1,7 @@
 {% extends 'daycare_staff/staff.html' %}
 {% load static %}
 {% block content %}
-<div class=" vh-100 nutritions">
+<div class=" vh-100 nutritions overflow-auto ">
     <div class="container pt-5">
         <h2 class="text-uppercase text-center fw-bold text-success report_font pb-4">advanced nutritions planning</h2>
         <table class="table table-sm border-dark text-dark nutrition_style">
@@ -27,7 +27,7 @@
                 <td>{{child.weight}}</td>
                 <td>{{child.medical_information}}</td>
                 <td>{{child.dieatry_preferences}}</td>
-                <td><a href="{% url 'daycare_staff:nutritions' %}" class="btn btn-primary btn-sm">Click</a></td>
+                <td><a href="{% url 'daycare_staff:nutritions' child.id %}" class="btn btn-primary btn-sm">Click</a></td>
               </tr>
               {% endfor %}
             

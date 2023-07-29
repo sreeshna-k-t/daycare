@@ -2,45 +2,658 @@
 {% load static %}
 {% block content %}
 
-<div class=" vh-100 nutritions">
+<div class="vh-100 nutritions overflow-auto">
   <div class="container pt-5">
     <h2 class="text-uppercase text-center fw-bold text-success report_font pb-4">advanced nutritions planning</h2>
-    <div class="row ps-5">
+    <div class="row ms-5 ps-5">
+      <form method="POST">
+        {% csrf_token %}
       <table class="table table-sm border-dark text-dark nutrition_style">
         <thead>
-          <tr>
+         <tr>
             <th scope="col">Nutrition_categories</th>
-            <th scope="col">Quantity/day</th>
-            <th scope="col">Notes</th>
+            
           </tr>
 
 
-
-
-          <tr>
-            <td>proteins</td>
-
-
-            <td>100ml</td>
-
-
-            <td>avoid if any allergy produced</td>
-          </tr>
           <tr>
 
-            <td>Carbohydrates</td>
-
-            <td>700 ml</td>
-            <td>no notes</td>
+            <!-- <td>
+              <div class="dropdown">
+                <button class="w-50">Cereals</button>
+                <div class="dropdown-content">
+                    <label><input type="checkbox" name="cereals[]" value="Rice">Rice<input type="text" name="Rice_quantity" style="width: 40px;"></label>
+                    <label><input type="checkbox" name="cereals[]" value="Oatmeal"> Oatmeal<input type="text" name="Oatmeal_quantity" style="width: 40px;"></label>
+                    <label><input type="checkbox" name="cereals[]" value="Wheat"> Wheat<input type="text"  name="Wheat_quantity" style="width: 40px;"></label>
+                    <label><input type="checkbox" name="cereals[]" value="Ragipowder">Ragipowder<input type="text" name="Ragipowder_quantity" style="width: 40px;"></label>
+                    <label><input type="checkbox" name="cereals[]" value="Bananapowder"> Bananapowder<input type="text" name="Bananapowder_quantity" style="width: 40px;"></label>
+                    <label><input type="checkbox" name="cereals[]" value="Barly">Barly<input type="text"  name="Barly_quantity" style="width: 40px;"></label>
+                    <label><input type="checkbox" name="cereals[]" value="Millet">Millet<input type="text" name="Millet_quantity" style="width: 40px;"></label>
+                    
+                    
+                </div>
+            </div>
+            </td>
+            <td><textarea name="cereal_notes" id="" cols="50" rows="2"></textarea></td> -->
+            
+           
+          
           </tr>
           <tr>
             <td>
+              <button class="appointment-btn  ms-2 scrollto p-2 rounded-3 w-50" type="button" id="dropdownMenuButton2"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          Cereals
+        </button>
+              <ul class="dropdown-menu mx-auto p-1" onclick="event.stopPropagation()" 
+          aria-labelledby="dropdownMenuButton2">
+          <div class="container-fluid">
+          <div class="row ">
+            <div class="col-md-9">
+    
+                <label
+                  ><input
+                    type="checkbox"
+                    name="cereals[]"
+                    value="Rice" />Rice</label>
+            </div>
+            <div class="col-md-3">
+                <input
+                type="text"
+                name="Rice_quantity"
+                style="width: 40px"
+            />
+            </div>
+          </div>
+          <div class="row ">
+            <div class="col-md-9">
+                <label
+                  ><input type="checkbox" name="cereals[]" value="Oatmeal" /> Oatmeal</label>
+    
+            </div>
+            <div class="col-md-3">
+                <input
+                type="text"
+                name="Oatmeal_quantity"
+                style="width: 40px"
+            />
+            </div>
+          </div>
+          <div class="row ">
+            <div class="col-md-9">
+                <label
+                ><input type="checkbox" name="cereals[]" value="Wheat" /> Wheat</label>
+            </div>
+            <div class="col-md-3">
+                <input
+                type="text"
+                name="Wheat_quantity"
+                style="width: 40px"
+            />
+            </div>
+            
+          </div>
+          <div class="row ">
+            <div class="col-md-9">
+                <label
+                ><input
+                  type="checkbox"
+                  name="cereals[]"
+                  value="Ragipowder" />Ragipowder</label>
+            </div>
+            <div class="col-md-3">
+                <input
+                type="text"
+                name="Ragipowder_quantity"
+                style="width: 40px"
+            />
+            </div>
+            
+          </div>
+          
+          <div class="row ">
+            <div class="col-md-9">
+                <label
+                ><input type="checkbox" name="cereals[]" value="Barly" />Barly</label>
+            </div>
+            <div class="col-md-3">
+                <input
+                type="text"
+                name="Barly_quantity"
+                style="width: 40px"
+            />
+            </div>
+            
+          </div>
+          <div class="row ">
+            <div class="col-md-9">
+                <label
+                ><input
+                  type="checkbox"
+                  name="cereals[]"
+                  value="Millet" />Millet</label>
+            </div>
+            <div class="col-md-3">
+                <input
+                type="text"
+                name="Millet_quantity"
+                style="width: 40px"
+            />
+            </div>
+            
+          </div>
+          <div class="row ">
+            <div class="col-md-9">
+                <label
+                ><input type="checkbox" name="cereals[]" value="bananapowder" />bananapowder</label>
+            </div>
+            <div class="col-md-3">
+                <input
+                type="text"
+                name="bananapowder_quantity"
+                style="width: 40px"
+            />
+            </div>
+            
+          </div>
+          </div>
+          </ul>
+          
+          
+          <tr>
+            <td>
+              <button class="appointment-btn  ms-2 scrollto p-2 rounded-3 w-50" type="button" id="dropdownMenuButton2"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          Proteins
+        </button>
+              <ul class="dropdown-menu mx-auto p-1" onclick="event.stopPropagation()" 
+          aria-labelledby="dropdownMenuButton2">
+          <div class="container-fluid">
+          <div class="row ">
+            <div class="col-md-8">
+    
+                <label
+                  ><input
+                    type="checkbox"
+                    name="proteins[]"
+                    value="Lentils" />Lentils</label>
+            </div>
+            <div class="col-md-4">
+                <input
+                type="text"
+                name="Lentils_quantity"
+                style="width: 40px"
+            />
+            </div>
+          </div>
+          <div class="row ">
+            <div class="col-md-8">
+                <label
+                  ><input type="checkbox" name="proteins[]" value="Eggs" /> Eggs</label>
+    
+            </div>
+            <div class="col-md-4">
+                <input
+                type="text"
+                name="Eggs_quantity"
+                style="width: 40px"
+            />
+            </div>
+          </div>
+          
+          <div class="row ">
+            <div class="col-md-8">
+                <label
+                ><input
+                  type="checkbox"
+                  name="proteins[]"
+                  value="PeanutButter" />PeanutButter</label>
+            </div>
+            <div class="col-md-4">
+                <input
+                type="text"
+                name="PeanutButter_quantity"
+                style="width: 40px"
+            />
+            </div>
+            
+          </div>
+          <div class="row ">
+            <div class="col-md-8">
+                <label
+                ><input type="checkbox" name="proteins[]" value="Fish" /> Fish</label>
+            </div>
+            <div class="col-md-4">
+                <input
+                type="text"
+                name="Fish_quantity"
+                style="width: 40px"
+            />
+            </div>
+            
+          </div>
+          <div class="row ">
+            <div class="col-md-8">
+                <label
+                ><input type="checkbox" name="proteins[]" value="Tofu" />Tofu</label>
+            </div>
+            <div class="col-md-4">
+                <input
+                type="text"
+                name="Tofu_quantity"
+                style="width: 40px"
+            />
+            </div>
+            
+          </div>
+          <div class="row ">
+            <div class="col-md-8">
+                <label
+                ><input
+                  type="checkbox"
+                  name="proteins[]"
+                  value="Hummus" />Hummus</label>
+            </div>
+            <div class="col-md-4">
+                <input
+                type="text"
+                name="Hummus_quantity"
+                style="width: 40px"
+            />
+            </div>
+            
+          </div>
+          <div class="row ">
+            <div class="col-md-8">
+                <label
+                ><input type="checkbox" name="proteins[]" value="Seeds" />Seeds</label>
+            </div>
+            <div class="col-md-4">
+                <input
+                type="text"
+                name="Seeds_quantity"
+                style="width: 40px"
+            />
+            </div>
+            
+          </div>
+          <div class="row ">
+            <div class="col-md-8">
+                <label
+                ><input type="checkbox" name="proteins[]" value="Nuts" /> Nuts</label>
+            </div>
+            <div class="col-md-4">
+                <input
+                type="text"
+                name="Nuts_quantity"
+                style="width: 40px"
+            />
+            </div>
+            
+          </div>
+        </div>
+        </ul>
+              <!-- <div class="dropdown">
+                <button class="w-50">Proteins</button>
+                <div class="dropdown-content">
+                    <label><input type="checkbox" name="proteins[]" value="Lentils">Lentils<input type="text" name="Lentils_quantity" style="width: 40px;"></label>
+                    <label><input type="checkbox" name="proteins[]" value="Eggs"> Eggs<input type="text" name="Eggs_quantity" style="width: 40px;"></label>
+                    <label><input type="checkbox" name="proteins[]" value="Meat"> Meat<input type="text"  name="Meat_quantity" style="width: 40px;"></label>
+                    <label><input type="checkbox" name="proteins[]" value="PeanutButter">PeanutButter<input type="text" name="PeanutButter_quantity" style="width: 40px;"></label>
+                    <label><input type="checkbox" name="proteins[]" value="Fish"> Fish<input type="text" name="Fish_quantity" style="width: 40px;"></label>
+                    <label><input type="checkbox" name="proteins[]" value="Tofu">Tofu<input type="text"  name="Tofu_quantity" style="width: 40px;"></label>
+                    <label><input type="checkbox" name="proteins[]" value="Hummus">Hummus<input type="text" name="Hummus_quantity" style="width: 40px;"></label>
+                    <label><input type="checkbox" name="proteins[]" value="Seeds">Seeds<input type="text" name="Seeds_quantity" style="width: 40px;"></label>
+                    <label><input type="checkbox" name="proteins[]" value="Nuts"> Nuts<input type="text"  name="Nuts_quantity" style="width: 40px;"></label>
+                    
+                </div>
+            </div> -->
+            <tr>
+              <td>
+                <button class="appointment-btn  ms-2 scrollto p-2 rounded-3 w-50" type="button" id="dropdownMenuButton2"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Fruits and vegetables
+          </button>
+                <ul class="dropdown-menu mx-auto p-1" onclick="event.stopPropagation()" 
+            aria-labelledby="dropdownMenuButton2">
+            <div class="container-fluid">
+            <div class="row ">
+              <div class="col-md-6">
+      
+                  <label
+                    ><input
+                      type="checkbox"
+                      name="proteins[]"
+                      value="avocado" />avocado</label>
+              </div>
+              <div class="col-md-6">
+                  <input
+                  type="text"
+                  name="avocado_quantity"
+                  style="width: 40px"
+              />
+              </div>
+            </div>
+            <div class="row ">
+              <div class="col-md-6">
+                  <label
+                    ><input type="checkbox" name="fruits[]" value="Apple" />Apple</label>
+      
+              </div>
+              <div class="col-md-6">
+                  <input
+                  type="text"
+                  name="Apple_quantity"
+                  style="width: 40px"
+              />
+              </div>
+            </div>
+            <div class="row ">
+              <div class="col-md-6">
+                  <label
+                  ><input type="checkbox" name="fruits[]" value="Banana" /> Banana</label>
+              </div>
+              <div class="col-md-6">
+                  <input
+                  type="text"
+                  name="Banana_quantity"
+                  style="width: 40px"
+              />
+              </div>
+              
+            </div>
+            <div class="row ">
+              <div class="col-md-6">
+                  <label
+                  ><input
+                    type="checkbox"
+                    name="fruits[]"
+                    value="Mango" />Mango</label>
+              </div>
+              <div class="col-md-6">
+                  <input
+                  type="text"
+                  name="Mango_quantity"
+                  style="width: 40px"
+              />
+              </div>
+              
+            </div>
+            <div class="row ">
+              <div class="col-md-6">
+                  <label
+                  ><input type="checkbox" name="fruits[]" value="Plums" /> Plums</label>
+              </div>
+              <div class="col-md-6">
+                  <input
+                  type="text"
+                  name="Plums_quantity"
+                  style="width: 40px"
+              />
+              </div>
+              
+            </div>
+            <div class="row ">
+              <div class="col-md-6">
+                  <label
+                  ><input type="checkbox" name="fruits[]" value="Berries" />Berries</label>
+              </div>
+              <div class="col-md-6">
+                  <input
+                  type="text"
+                  name="Berries_quantity"
+                  style="width: 40px"
+              />
+              </div>
+              
+            </div>
+            <div class="row ">
+              <div class="col-md-6">
+                  <label
+                  ><input
+                    type="checkbox"
+                    name="fruits[]"
+                    value="Grapes" />Grapes</label>
+              </div>
+              <div class="col-md-6">
+                  <input
+                  type="text"
+                  name="Grapes_quantity"
+                  style="width: 40px"
+              />
+              </div>
+              
+            </div>
+            <div class="row ">
+              <div class="col-md-6">
+                  <label
+                  ><input type="checkbox" name="fruits[]" value="Frozen fruits" />Frozen fruits</label>
+              </div>
+              <div class="col-md-6">
+                  <input
+                  type="text"
+                  name="Frozen fruits_quantity"
+                  style="width: 40px"
+              />
+              </div>
+              
+            </div>
+            <div class="row ">
+              <div class="col-md-6">
+                  <label
+                  ><input type="checkbox" name="fruits[]" value="Pears" /> Pears</label>
+              </div>
+              <div class="col-md-6">
+                  <input
+                  type="text"
+                  name="Pears_quantity"
+                  style="width: 40px"
+              />
+              </div>
+              
+            </div>
+            <div class="row ">
+              <div class="col-md-6">
+                  <label
+                  ><input type="checkbox" name="fruits[]" value="Carrots" />Carrots</label>
+              </div>
+              <div class="col-md-6">
+                  <input
+                  type="text"
+                  name="Carrots_quantity"
+                  style="width: 40px"
+              />
+              </div>
+              
+            </div>
+            <div class="row ">
+              <div class="col-md-6">
+                  <label
+                  ><input type="checkbox" name="fruits[]" value="Beans" />Beans</label>
+              </div>
+              <div class="col-md-6">
+                  <input
+                  type="text"
+                  name="Beans_quantity"
+                  style="width: 40px"
+              />
+              </div>
+              
+            </div>
+            <div class="row ">
+              <div class="col-md-6">
+                  <label
+                  ><input type="checkbox" name="fruits[]" value="Sweet potatoes" />Sweet potatoes</label>
+              </div>
+              <div class="col-md-6">
+                  <input
+                  type="text"
+                  name="Sweet potatoes_quantity"
+                  style="width: 40px"
+              />
+              </div>
+              
+            </div>
+          </div>
+          </ul>
+          <tr>
+            <td>
+              <button class="appointment-btn  ms-2 scrollto p-2 rounded-3 w-50" type="button" id="dropdownMenuButton2"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          Dairy Products
+        </button>
+              <ul class="dropdown-menu mx-auto p-1" onclick="event.stopPropagation()" 
+          aria-labelledby="dropdownMenuButton2">
+          <div class="container-fluid">
+          <div class="row ">
+            <div class="col-md-7">
+    
+                <label
+                  ><input
+                    type="checkbox"
+                    name="dairy[]"
+                    value="Milk" />Milk</label>
+            </div>
+            <div class="col-md-5">
+                <input
+                type="text"
+                name="Milk_quantity"
+                style="width: 40px"
+            />
+            </div>
+          </div>
+          <div class="row ">
+            <div class="col-md-7">
+                <label
+                  ><input type="checkbox" name="dairy[]" value="Butter" /> Butter</label>
+    
+            </div>
+            <div class="col-md-5">
+                <input
+                type="text"
+                name="Butter_quantity"
+                style="width: 40px"
+            />
+            </div>
+          </div>
+          <div class="row ">
+            <div class="col-md-7">
+                <label
+                ><input type="checkbox" name="dairy[]" value="Cheese" /> Cheese</label>
+            </div>
+            <div class="col-md-5">
+                <input
+                type="text"
+                name="Cheese_quantity"
+                style="width: 40px"
+            />
+            </div>
+            
+          </div>
+          <div class="row ">
+            <div class="col-md-7">
+                <label
+                ><input
+                  type="checkbox"
+                  name="dairy[]"
+                  value="Yogurt" />Yogurt</label>
+            </div>
+            <div class="col-md-5">
+                <input
+                type="text"
+                name="Yogurt_quantity"
+                style="width: 40px"
+            />
+            </div>
+            
+          </div>
+          <div class="row ">
+            <div class="col-md-7">
+                <label
+                ><input type="checkbox" name="dairy[]" value="Cream" /> Cream</label>
+            </div>
+            <div class="col-md-5">
+                <input
+                type="text"
+                name="Cream_quantity"
+                style="width: 40px"
+            />
+            </div>
+            
+          </div>
+          
+          <div class="row ">
+            <div class="col-md-7">
+                <label
+                ><input
+                  type="checkbox"
+                  name="dairy[]"
+                  value="Whey" />Whey</label>
+            </div>
+            <div class="col-md-5">
+                <input
+                type="text"
+                name="Whey_quantity"
+                style="width: 40px"
+            />
+            </div>
+            
+          </div>
+          <div class="row ">
+            <div class="col-md-7">
+                <label
+                ><input
+                  type="checkbox"
+                  name="dairy[]"
+                  value="IceCream" />IceCream</label>
+            </div>
+            <div class="col-md-5">
+                <input
+                type="text"
+                name="IceCream_quantity"
+                style="width: 40px"
+            />
+            </div>
+            
+          </div>
+          <div class="row ">
+            <div class="col-md-7">
+                <label
+                ><input
+                  type="checkbox"
+                  name="dairy[]"
+                  value="Casein" />Casein</label>
+            </div>
+            <div class="col-md-5">
+                <input
+                type="text"
+                name="Casein"
+                style="width: 40px"
+            />
+            </div>
+            
+          </div>
+          </div>
+          </ul>
+          
+            </td>
+
+
+            
+
+
+            
+          </tr>
+          
+          <tr>
+            <td><textarea class="w-50 text-center" type="address" id="notes" name="notes" placeholder="Type your notes here."
+            row="3"></textarea>
 <!-- 
               <select class="text-dark" id="fruits" multilpe="multiple" name="fruits"
                 aria-label="Default select example">
                 <option selected>Select Fruits and vegetables</option>
                 <option value="Avocado">Avocado</option>
-                <option value="Apple">Apple</option>
+                <option value="Apple">Apple</optionn>
                 <option value="Banana">Banana</option>
                 <option value="Mango">Mango</option>
                 <option value="plums">plums</option>
@@ -52,29 +665,60 @@
                 <option value="Beans">Beans</option>
                 <option value="Sweet potatoes">Sweet potatoes</option>
               </select> -->
-              <div class="dropdown">
-                <button>Fruits and Vegetables</button>
+              <!-- <div class="dropdown">
+                <button class="w-50">Fruits and Vegetables</button>
                 <div class="dropdown-content">
-                    <label><input type="checkbox" name="fruits[]" value="Avocado">Avocado<input type="number" style="width: 40px;"></label>
-                    <label><input type="checkbox" name="fruits[]" value="Apple"> Apple<input type="number" style="width: 40px;"></label>
-                    <label><input type="checkbox" name="fruits[]" value="Banana"> Banana<input type="number" style="width: 40px;"></label>
+                    <label><input type="checkbox" name="fruits[]" value="Avocado">Avocado<input type="text" name="Avocado_quantity" style="width: 40px;"></label>
+                    <label><input type="checkbox" name="fruits[]" value="Apple"> Apple<input type="text" name="Apple_quantity" style="width: 40px;"></label>
+                    <label><input type="checkbox" name="fruits[]" value="Banana"> Banana<input type="text"  name="Banana_quantity" style="width: 40px;"></label>
+                    <label><input type="checkbox" name="fruits[]" value="Mango">Mango<input type="text" name="Mango_quantity" style="width: 40px;"></label>
+                    <label><input type="checkbox" name="fruits[]" value="Plums"> Plums<input type="text" name="Plums_quantity" style="width: 40px;"></label>
+                    <label><input type="checkbox" name="fruits[]" value="Berries"> Berries<input type="text"  name="Berries_quantity" style="width: 40px;"></label>
+                    <label><input type="checkbox" name="fruits[]" value="Grapes">Grapes<input type="text" name="Grapes_quantity" style="width: 40px;"></label>
+                    <label><input type="checkbox" name="fruits[]" value="Frozenfruit">Frozenfruit<input type="text" name="Frozenfruit_quantity" style="width: 40px;"></label>
+                    <label><input type="checkbox" name="fruits[]" value="Pears"> Pears<input type="text"  name="Pears_quantity" style="width: 40px;"></label>
+                    <label><input type="checkbox" name="fruits[]" value="Carrots">Carrots<input type="text" name="Carrots_quantity" style="width: 40px;"></label>
+                    <label><input type="checkbox" name="fruits[]" value="Beans"> Beans<input type="text" name="Beans_quantity" style="width: 40px;"></label>
+                    <label><input type="checkbox" name="fruits[]" value="Sweetpotatoes"> Sweetpotatoes<input type="number"  name="Sweetpotatoes_quantity" style="width: 40px;"></label>
                 </div>
             </div>
             </td>
 
-            <td>1 L
-              
+            
+          </tr> -->
+          <!-- <tr>
+            <td>
+              <div class="dropdown">
+                <button class="w-50">Dairy Products</button>
+                <div class="dropdown-content">
+                    <label><input type="checkbox" name="dairy[]" value="Milk">Milk<input type="text" name="Milk_quantity" style="width: 40px;"></label>
+                    <label><input type="checkbox" name="dairy[]" value="Butter">Butter<input type="text" name="Butter_quantity" style="width: 40px;"></label>
+                    <label><input type="checkbox" name="dairy[]" value="Cheese">Cheese<input type="text"  name="Cheese_quantity" style="width: 40px;"></label>
+                    <label><input type="checkbox" name="dairy[]" value="Yogurt">Yogurt<input type="text" name="Yogurt_quantity" style="width: 40px;"></label>
+                    <label><input type="checkbox" name="dairy[]" value="HeavyCream">HeavyCream<input type="text" name="HeavyCream_quantity" style="width: 40px;"></label>
+                    <label><input type="checkbox" name="dairy[]" value="SourCream">SourCream<input type="text"  name="SourCream_quantity" style="width: 40px;"></label>
+                    <label><input type="checkbox" name="dairy[]" value="IceCream">IceCream<input type="text" name="IceCream_quantity" style="width: 40px;"></label>
+                    <label><input type="checkbox" name="dairy[]" value="Whey">Whey<input type="text" name="Whey_quantity" style="width: 40px;"></label>
+                    <label><input type="checkbox" name="dairy[]" value="Casein"> Casein<input type="text"  name="Casein_quantity" style="width: 40px;"></label>
+                    
+                </div>
+            </div>
             </td>
-            <td><textarea name="" id="" cols="30" rows="2"></textarea></td>
-          </tr>
-          <tr>
-            <td>Dairy products</td>
 
-            <td>1 L</td>
-            <td>dont give it early morning</td>
+            
+            
           </tr>
+       
+          
+           --></td></tr>
           </tbody>
       </table>
+      <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-success w-25" >Submit</button>
+        <!-- <input class="btn btn-success w-25"  type="submit" value="Submit" id="submit"> -->
+
+        </div>
+        </form>
       
       <script></script>
     </div>
@@ -83,7 +727,7 @@
 <style>
   .dropdown {
       position: relative;
-      display: inline-block;
+      
   }
   .dropdown-content {
       display: none;
@@ -99,7 +743,7 @@
       text-decoration: none;
       display: block;
   }
-  .dropdown:hover .dropdown-content {
+  .dropdown:hover .dropdown-content{
       display: block;
   }
 </style>

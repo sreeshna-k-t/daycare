@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import *
 from daycare_admin.models import *
 import datetime
-
+from daycare_staff.models import *
 # Create your views here.
 
 
@@ -81,8 +81,15 @@ def viewattendance(request):
 
 
 def viewnutritions(request):
-
-    return render(request, "daycare_parent/viewnutritions.html")
+    user_id = request.session['user_id']
+    child = ChildRegister.objects.filter(parent_fk=user_id)
+    print(child)
+    all_child = []
+    for i in child:
+        nutritions = Nutritions.objects.get(child_fk=i.id)
+        all_child.append(nutritions)
+    print(all_child)
+    return render(request, "daycare_parent/viewnutritions.html", {"all_child":all_child})
 
 
 def logout(request):

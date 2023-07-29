@@ -2,40 +2,122 @@
 {% load static %}
 {% block content %}
 
-    <div class=" vh-100 nutritions">
-        <div class="container pt-md-5 ps-md-4 pe-md-4">
-            <h2 class="text-uppercase text-center fw-bold text-success card_style report_font  pt-md-2 pb-md-2">advanced nutritions planning
-            </h2>
-            <table class="table table-sm border-dark text-dark nutrition_style">
-                <thead>
-                    <tr>
-                        
-                        <th scope="col">Child_Name</th>
-                        <th scope="col">Age</th>
-                        <th scope="col">Parent_Name</th>
-                        <th scope="col">Nutrition_Name</th>
-            
-                        <th scope="col">Quantity/day</th>
-                        <th scope="col">Notes</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                       
-                        <td>Hellen</td>
-                        <td>2</td>
-                        <td>swathy</td>
-                        <td> raggi powder,banana powder,milk</td>
-                        <td>10ts
-                            5ts
-                            500l
-                        </td>
-                        <td>avoid if any allergy produced</td>
-                    </tr>
+<div class=" vh-100 nutritions">
+    <div class="container pt-md-5 ps-md-4 pe-md-4">
+        <h2 class="text-uppercase text-center fw-bold text-success card_style report_font  pt-md-2 pb-md-2">advanced
+            nutritions planning
+        </h2>
+        <table class="table table-sm border-dark text-dark nutrition_style">
+            <thead>
+                <tr>
 
-                </tbody>
-            </table>
-        </div>
+                    <th scope="col">Child_Name</th>
+                    <th scope="col">CEREALS</th>
+                    <th scope="col">PROTEINS</th>
+                    <th scope="col">FRUITS</th>
+                    <th scope="col">DAIRY</th>
+                    <th scope="col">NOTES</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for child in all_child %}
+                <tr>
+                    <td>{{child.child_fk.name}}</td>
+                    <td>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Items|</th>
+                                    <th>Quantity/day</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for i in child.cereals.cereal %}
+                                <tr>
+                                    <td>{{i.cereal}}</td>
+                                    <td>{{i.quantity}}</td>
+                                </tr>
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </td>
+                    <td>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Items|</th>
+                                    <th>Quantity/day</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for i in child.proteins.protein %}
+                                <tr>
+                                    <td>{{i.protein}}</td>
+                                    <td>{{i.quantity}}</td>
+                                </tr>
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </td>
+                    <td>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Items|</th>
+                                    <th>Quantity/day</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for i in child.fruits.fruit %}
+                                <tr>
+                                    <td>{{i.fruit}}</td>
+                                    <td>{{i.quantity}}</td>
+                                </tr>
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </td>
+                    <td>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Items|</th>
+                                    <th>Quantity/day</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for i in child.dairy.dairy %}
+                                <tr>
+                                    <td>{{i.dairy}}</td>
+                                    <td>{{i.quantity}}</td>
+                                </tr>
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </td>
+
+
+                    <td>{{child.cereals.notes}}</td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
+</div>
 
 {% endblock %}
