@@ -11,6 +11,7 @@ class Nutritions(models.Model):
     dairy = models.JSONField(blank=True, default=list)
     proteins = models.JSONField(blank=True, default=list)
     cereals = models.JSONField(blank=True, default=list)
+    notes = models.TextField()
 
 
     class Meta():

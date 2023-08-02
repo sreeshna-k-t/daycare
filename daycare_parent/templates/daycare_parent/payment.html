@@ -2,7 +2,19 @@
 {% load static %}
 {% block content %}
 
-<div class="container vh-100">
+<h2>PAY 2000 MONTHLY</h2>
+<form action="{% url 'daycare_parent:charge' %}" method="POST">
+    {% csrf_token %}
+<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="{{ key }}"
+    data-description="Payment Gateway"
+    data-amount="500"
+    data-locale="auto">
+
+</script>
+</form>
+
+<!-- <div class="container vh-100">
     <div class="container py-5">
         <h2 class="text-upperc  ase text-center pb-md-3 fw-bold text-light report_font">payment form</h2>
         <div class="container"></div>
@@ -79,9 +91,9 @@
         let cardnoError = true;
         $("#cardno").keyup(function () {
             validateCardno();
-        });
+        }); -->
 
-        function validateCardno() {
+        <!-- function validateCardno() {
             let cardnoValue = $("#cardno").val();
             if (cardnoValue.length == "") {
                 $("#cardno_error").show();
@@ -152,6 +164,6 @@
 
     })
 
-</script>
+</script> -->
 
 {% endblock %}

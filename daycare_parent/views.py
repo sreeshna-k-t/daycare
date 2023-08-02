@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect
+from django.conf import settings
 from .models import *
 from daycare_admin.models import *
 import datetime
 from daycare_staff.models import *
+from django.views.generic.base import TemplateView
+import stripe
 # Create your views here.
 
 
@@ -15,6 +18,28 @@ def parenthome(request):
 def payment(request):
 
     return render(request, "daycare_parent/payment.html")
+def charge(request):
+    if request.method == 'POST':
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+
+        try:
+            intent = stripe.PaymentIntent.create(
+                amount=1099,
+                currency='inr',
+                payment_method_types=['card'],
+            )
+        except stripe.error.StripeError as e:
+            # Handle error here
+            return render(request, 'daycare_parent/error.html', {'message': 'Your card has been declined.'})
+    return render(request, "daycare_parent/charge.html")
+
+class ViewPayment(TemplateView):
+    template_name = 'daycare_parent/payment.html'
+
+    def get_context_data(self, **kwargs): #new
+        context = super().get_context_data(**kwargs)
+        context['key'] = settings.STRIPE_PUBLISHABLE_KEY
+        return context
 
 
 def profile(request):

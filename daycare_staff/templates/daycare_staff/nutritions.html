@@ -5,7 +5,7 @@
 <div class="vh-100 nutritions overflow-auto">
   <div class="container pt-5">
     <h2 class="text-uppercase text-center fw-bold text-success report_font pb-4">advanced nutritions planning</h2>
-    <div class="row ms-5 ps-5">
+    <div class="row ms-5">
       <form method="POST">
         {% csrf_token %}
       <table class="table table-sm border-dark text-dark nutrition_style">
@@ -646,8 +646,8 @@
           </tr>
           
           <tr>
-            <td><textarea class="w-50 text-center" type="address" id="notes" name="notes" placeholder="Type your notes here."
-            row="3"></textarea>
+            <td><textarea class=" w-50 text-center ms-2" type="address" id="notes" name="notes" placeholder="Type your notes here."
+             ></textarea>
 <!-- 
               <select class="text-dark" id="fruits" multilpe="multiple" name="fruits"
                 aria-label="Default select example">
@@ -713,11 +713,11 @@
            --></td></tr>
           </tbody>
       </table>
-      <div class="d-flex justify-content-center">
-        <button type="submit" class="btn btn-success w-25" >Submit</button>
+      
+        <button type="submit" class="ms-5 btn btn-success w-25" >Submit</button>
         <!-- <input class="btn btn-success w-25"  type="submit" value="Submit" id="submit"> -->
-
-        </div>
+     
+       
         </form>
       
       <script></script>

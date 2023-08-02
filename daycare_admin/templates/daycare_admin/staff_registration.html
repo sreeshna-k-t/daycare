@@ -256,41 +256,7 @@
                 $("#dob_error").hide();
             }
         }
-        $("#gender_error").hide();
-    let genderError = true;
-    $("#gender").change(function () {
-      validateGender();
-    });
-
-    function validateGender() {
-      let genderValue = $("#gender").val();
-      if (genderValue == "male") {
-        $("#gende_error").hide();
-        $("#gender_error").html("");
-        $("#gender").css("border-color", "");
-        genderError = true;
-        return true;
-      } else if (genderValue == "female") {
-        $("#gender_error").hide();
-        $("#gender_error").html("");
-        $("#gender").css("border-color", "");
-        genderError = true
-        return true;
-      } else if (genderValue == "others") {
-        $("#gender_error").hide();
-        $("#gender_error").html("");
-        $("#gender").css("border-color", "");
-        genderError = true
-        return true;
-      }
-      else {
-        $("#gender_error").show();
-        $("#gender_error").html("*Please select user type");
-        $("#gender").css("border-color", "red");
-        genderError = false
-        return false
-      }
-    }
+        
     $("#qualification_error").hide();
     let qualificationError = true;
     $("#qualification").change(function () {
@@ -450,7 +416,7 @@
             validateAddress();
             validateEmail();
             validateDob();
-            validateGender();
+    
             validateQualification();
             validateNumber();
             validateUsername();
@@ -460,7 +426,7 @@
 
 
             if (nameError == true && addressError == true && emailError == true && dobError == true
-            && genderError == true   && qualificationError == true && usernameError == true && passwordError == true && confirmError == true) {
+              && qualificationError == true && usernameError == true && passwordError == true && confirmError == true) {
 
                 return true;
             } else {

@@ -9,8 +9,10 @@ urlpatterns = [
     path('report', views.report, name='report'),
     path('viewparent', views.viewparent, name='viewparent'),
     path('viewchild/<int:id>', views.viewchild, name='viewchild'),
-    path('viewpayment', views.viewpayment, name='viewpayment'),
+    path('charge', views.charge, name='charge'),
     path('viewfeedback', views.viewfeedback, name='viewfeedback'),
+    path('viewpayment', views.viewpayment, name='viewpayment'),
+
 
 
 ]

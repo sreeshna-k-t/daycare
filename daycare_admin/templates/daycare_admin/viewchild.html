@@ -31,7 +31,7 @@
                         <td>{{child.dieatry_preferences}}</td>
                         <td>{{child.pickup_list}}</td>
                         <td>{{child.parental_preferences}}</td>
-                        <td><a href="{% url 'daycare_admin:viewchild' parent.id %}" class="btn btn-primary btn-sm">Click</a></td>
+                        <td><a href="{% url 'daycare_admin:viewchild' child.id %}" class="btn btn-primary btn-sm">Click</a></td>
                     </tr>
                     {% endfor %}
                    

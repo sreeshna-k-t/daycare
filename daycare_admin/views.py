@@ -5,8 +5,13 @@ from .models import *
 from  daycare_admin.models import *
 from django.core.mail import send_mail
 from django.conf import settings
+import stripe
+
 
 # Create your views here.
+from django.views.generic.base import TemplateView
+
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
 def adminhome(request):
@@ -91,5 +96,13 @@ def viewfeedback(request):
     return render(request,"daycare_admin/viewfeedback.html",{"all_feedback":all_feedback})
 
 
-
+def charge(request): #new
+    if request.method == 'POST':
+        charge = stripe.Charge.create(
+            amount=500,
+            currency='inr',
+            description='Payment Gateway',
+            source=request.POST['stripeToken']
+        )
+        return render(request,'charge.html')
 

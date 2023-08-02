@@ -9,10 +9,12 @@ urlpatterns = [
     path('feedback', views.feedback, name='feedback'),
     path('profile', views.profile, name='profile'),
     path('edit/<int:id>', views.edit_child, name='edit_child'),
-    path('payment', views.payment, name='payment'),
+    # path('payment', views.payment, name='payment'),
     path('viewnutritions', views.viewnutritions, name='viewnutritions'),
     path('viewreport', views.viewreport, name='viewreport'),
     path('viewattendance', views.viewattendance, name='viewattendance'),
+    path('payment', views.ViewPayment.as_view(), name='payment'),
+    path('charge', views.charge, name='charge'),
     path('logout', views.logout, name="logout"),
 
 ]

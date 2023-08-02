@@ -2,6 +2,10 @@ from django.shortcuts import render,redirect
 from common.models import *
 from daycare_admin.models import *
 from .models import *
+# from celery import task
+from datetime import date
+from django.core.mail import send_mail
+from .models import ChildRegister
 # Create your views here.
 
 
@@ -28,10 +32,10 @@ def nutritions(request, id):
         proteins = request.POST.getlist('proteins[]')
         fruits = request.POST.getlist('fruits[]')
         dairys = request.POST.getlist('dairy[]')
-        cereal_notes = request.POST['cereal_notes']
-        protein_notes = request.POST['protein_notes']
-        fruit_notes = request.POST['fruit_notes']
-        dairy_notes = request.POST['dairy_notes']
+        notes = request.POST['notes']
+        # protein_notes = request.POST['protein_notes']
+        # fruit_notes = request.POST['fruit_notes']
+        # dairy_notes = request.POST['dairy_notes']
         
         nutrition_check = Nutritions.objects.filter(id=id).first()
         child_fk = ChildRegister.objects.get(id=id)
@@ -51,7 +55,7 @@ def nutritions(request, id):
             cereal_nutrition.append(cereal_data)
 
         cereal_dict["cereal"] = cereal_nutrition
-        cereal_dict["notes"] = cereal_notes
+        
         all_cereals.append(cereal_dict)
         
         # Protins
@@ -69,7 +73,7 @@ def nutritions(request, id):
             protein_nutrition.append(protin_data)
 
         protein_dict["protein"] = protein_nutrition
-        protein_dict["notes"] = protein_notes
+        # protein_dict["notes"] = protein_notes
         all_protins.append(protein_dict)
 
         # Fruits
@@ -85,7 +89,7 @@ def nutritions(request, id):
             fruit_data["fruit"] = fruit
             fruit_nutrition.append(fruit_data)
         fruit_dict["fruit"] = fruit_nutrition
-        fruit_dict["notes"] = fruit_notes
+        # fruit_dict["notes"] = fruit_notes
         all_fruits.append(fruit_dict)
 
         # Dairy
@@ -101,15 +105,53 @@ def nutritions(request, id):
             dairy_data["dairy"] = dairy
             dairy_nutrition.append(dairy_data)
         dairy_dict["dairy"] = dairy_nutrition
-        dairy_dict["notes"] = dairy_notes
+        # dairy_dict["notes"] = dairy_notes
         all_dairys.append(dairy_dict)
 
         if nutrition_check:
-            Nutritions.objects.filter(id=id).update(cereals=cereal_dict,proteins=protein_dict,fruits=fruit_dict,dairy=dairy_dict)
+            Nutritions.objects.filter(id=id).update(cereals=cereal_dict,proteins=protein_dict,fruits=fruit_dict,dairy=dairy_dict,notes=notes)
             return redirect("daycare_staff:viewprofile")
         else:
-            nutrition = Nutritions(child_fk=child_fk,cereals=cereal_dict,proteins=protein_dict,fruits=fruit_dict,dairy=dairy_dict)
+            nutrition = Nutritions(child_fk=child_fk,cereals=cereal_dict,proteins=protein_dict,fruits=fruit_dict,dairy=dairy_dict,notes=notes)
             nutrition.save()
             return redirect("daycare_staff:viewprofile")
         
     return render(request, "daycare_staff/nutritions.html")
+
+def vaccination():
+    # def send_vaccination_alerts():
+    # Get the current date
+    current_date = date.today()
+
+    # Fetch children whose vaccination is due on the current date
+    children = ChildRegister.objects.all()
+
+    for child in children:
+        # Calculate the child's age in months
+        age_in_months = (current_date.year - child.date_of_birth.year) * 12 + (current_date.month - child.date_of_birth.month)
+
+        # Get the recommended vaccinations for the child's age from the vaccination schedule
+        recommended_vaccinations = get_recommended_vaccinations(age_in_months)
+
+        # Send vaccination alerts to parent emails
+        if recommended_vaccinations:
+            subject = 'Vaccination Alert for {}'.format(child.name)
+            message = 'Dear {}, your child {} is due for the following vaccinations: {}. Please make arrangements accordingly.'.format(
+                child.parent_name, child.name, ', '.join(recommended_vaccinations))
+            from_email = 'your@email.com'
+            recipient_list = [child.parent_email]
+
+            send_mail(subject, message, from_email, recipient_list)
+
+# utils.py
+def get_recommended_vaccinations(age_in_months):
+    # Implement your vaccination schedule logic here to return a list of recommended vaccinations based on the child's age
+    # Example: vaccination_schedule = {2: ['Vaccine A'], 6: ['Vaccine B', 'Vaccine C']}
+    vaccination_schedule = {
+        2: ['Vaccine A'],
+        6: ['Vaccine B', 'Vaccine C']
+    }
+    
+    return vaccination_schedule.get(age_in_months, [])
+
+    # return render(request, "daycare_staff/vaccination.html")
