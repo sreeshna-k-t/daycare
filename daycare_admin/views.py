@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from django.shortcuts import get_object_or_404
 from common.models import *
 from daycare_parent.models import * 
 from .models import * 
@@ -43,6 +44,7 @@ def staff_registration(request):
                                         staff_email_id=staffemail,staff_dob=staffdob,staff_gender=staffgender,staff_qualification=staffqualification,
                                         staff_mobile_no=staffphone,
                                         staff_username=staffusername,staff_password=staffpassword)
+            # staffreg.save()
             subject = "Calicut University Daycare Staff Registration"
             message = f"Hi {staffname}, \n\nYour Daycare login credentials is, \n\nUsername : {staffusername} \nPassword : {staffpassword} \n\nRegards \nDaycare Team"
             email_from = settings.EMAIL_HOST_USER
@@ -53,6 +55,16 @@ def staff_registration(request):
         return render(request,"daycare_admin/staff_registration.html", {"message":msg})
 
     return render(request,"daycare_admin/staff_registration.html")
+
+def viewstaff(request,):
+    all_staffs = StaffRegistration.objects.all()
+
+    return render(request, "daycare_admin/viewstaff.html",{"all_staffs":all_staffs})
+
+def delete_view(request, id):
+    item = get_object_or_404(StaffRegistration,id=id)
+    item.delete()
+    return redirect('daycare_admin/home')
     
 
 def report(request):

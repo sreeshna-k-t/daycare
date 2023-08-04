@@ -105,6 +105,9 @@ def viewattendance(request):
     return render(request, "daycare_parent/viewattendance.html")
 
 
+
+
+
 def viewnutritions(request):
     user_id = request.session['user_id']
     child = ChildRegister.objects.filter(parent_fk=user_id)

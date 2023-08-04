@@ -28,3 +28,5 @@ class StaffRegistration(models.Model):
     class Meta():
         db_table = "staff_registration"
 
+
+

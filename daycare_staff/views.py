@@ -138,7 +138,7 @@ def vaccination():
             subject = 'Vaccination Alert for {}'.format(child.name)
             message = 'Dear {}, your child {} is due for the following vaccinations: {}. Please make arrangements accordingly.'.format(
                 child.parent_name, child.name, ', '.join(recommended_vaccinations))
-            from_email = 'your@email.com'
+            email_from = 'your@email.com'
             recipient_list = [child.parent_email]
 
             send_mail(subject, message, from_email, recipient_list)
